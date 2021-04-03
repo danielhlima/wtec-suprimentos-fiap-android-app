@@ -22,7 +22,7 @@ public class RegisterCustomerViewModel extends AndroidViewModel implements Regis
     }
 
     @Override
-    public void RegisterCustomer(Customer customer, DataIn.Callback callback) {
+    public void registerCustomer(Customer customer, DataIn.Callback callback) {
         this.callback = callback;
         registerCustomerPresenter.registerCustomer(customer);
     }

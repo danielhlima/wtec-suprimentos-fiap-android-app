@@ -1,4 +1,4 @@
-package br.com.wtecsuprimentos.view;
+package br.com.wtecsuprimentos.view.fragments;
 
 import android.os.Bundle;
 

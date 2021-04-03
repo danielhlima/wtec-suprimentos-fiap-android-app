@@ -17,7 +17,7 @@ import br.com.wtecsuprimentos.device.data.models.CustomerModel;
 @Database(entities = {CustomerModel.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
-    private static final String LOG_TAG = AppDatabase.class.getSimpleName();
+    private static final String LOG_TAG = "DABUEK";
     private static final Object LOCK = new Object();
     private static final String DATABASE_NAME = "wtecdatabase";
     private static AppDatabase sInstance;
