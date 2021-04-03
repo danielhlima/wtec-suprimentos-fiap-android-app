@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,11 +80,11 @@ public class RegisterCustomerFragment extends Fragment implements DataIn.Callbac
 
     @Override
     public void onSuccess() {
-
+        Log.d("DABUEK", "Customer Criado com sucesso.");
     }
 
     @Override
     public void onError(Throwable throwable) {
-
+        Log.d("DABUEK", "Erro ao criar Customer: "+throwable.getMessage());
     }
 }
