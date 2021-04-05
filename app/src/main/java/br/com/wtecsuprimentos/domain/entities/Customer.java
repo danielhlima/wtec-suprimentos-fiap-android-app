@@ -11,14 +11,15 @@ public class Customer implements Serializable {
     private int maiorAtraso, titulosEmAberto, faturamentoBruto, margemBruta,
             periodoDemonstrativoEmMeses, custos, anoFundacao, capitalSocial,
             scorePontualidade, risco;
-    private float margemBrutaAcumulada, prazoMedioRecebimentoVendas,
+    private float prazoMedioRecebimentoVendas,
             diferencaPercentualRisco, percentualRisco;
+    private double margemBrutaAcumulada;
 
     public Customer(){}
 
     public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, int faturamentoBruto,
                     int margemBruta, int periodoDemonstrativoEmMeses, int custos, int anoFundacao,
-                    int capitalSocial, int scorePontualidade, int risco, float margemBrutaAcumulada,
+                    int capitalSocial, int scorePontualidade, int risco, double margemBrutaAcumulada,
                     float prazoMedioRecebimentoVendas, float diferencaPercentualRisco, float percentualRisco) {
         this.razaoSocial = razaoSocial;
         this.maiorAtraso = maiorAtraso;
@@ -125,11 +126,11 @@ public class Customer implements Serializable {
         this.risco = risco;
     }
 
-    public float getMargemBrutaAcumulada() {
+    public double getMargemBrutaAcumulada() {
         return margemBrutaAcumulada;
     }
 
-    public void setMargemBrutaAcumulada(float margemBrutaAcumulada) {
+    public void setMargemBrutaAcumulada(double margemBrutaAcumulada) {
         this.margemBrutaAcumulada = margemBrutaAcumulada;
     }
 

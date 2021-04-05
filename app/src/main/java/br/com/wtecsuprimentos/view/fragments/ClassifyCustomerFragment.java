@@ -11,46 +11,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
 import br.com.wtecsuprimentos.R;
-import br.com.wtecsuprimentos.domain.bus.DataIn;
+import br.com.wtecsuprimentos.domain.bus.DataOut;
 import br.com.wtecsuprimentos.domain.entities.Customer;
-import br.com.wtecsuprimentos.view.viewmodel.RegisterCustomerViewModel;
+import br.com.wtecsuprimentos.view.bus.ClassifyCustomerView;
+import br.com.wtecsuprimentos.view.viewmodel.ClassifyCustomerViewModel;
 
 
-public class RegisterCustomerFragment extends Fragment implements DataIn.Callback {
+public class ClassifyCustomerFragment extends Fragment implements DataOut.Callback<List<Integer>> {
 
-    private RegisterCustomerViewModel registerCustomerViewModel;
+    private ClassifyCustomerViewModel viewModel;
 
-    public RegisterCustomerFragment() { }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    public ClassifyCustomerFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        registerCustomerViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity()
-                .getApplication())
-                .create(RegisterCustomerViewModel.class);
+        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())
+                .create(ClassifyCustomerViewModel.class);
 
-
-        View view =  inflater.inflate(R.layout.fragment_register_customer, container, false);
-
-        ((Button)view.findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+        View view =  inflater.inflate(R.layout.fragment_classify_customer, container, false);
+        ((Button)view.findViewById(R.id.bt_classify_customers)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerCustomer();
+                classifyCustomer();
             }
         });
-
         return view;
     }
 
-    private void registerCustomer(){
-        registerCustomerViewModel.registerCustomer(createTestCustomer(), this);
+    private void classifyCustomer() {
+        List<Customer> customers = new ArrayList<Customer>();
+        customers.add(createTestCustomer());
+        viewModel.classifyCustomer(customers, this);
     }
 
     private Customer createTestCustomer(){
@@ -71,20 +73,20 @@ public class RegisterCustomerFragment extends Fragment implements DataIn.Callbac
         float percentualRisco = 25; // OK Corrigido
 
         Customer customer = new Customer(razaoSocial, maiorAtraso, titulosEmAberto, faturamentoBruto,
-        margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
-        capitalSocial, scorePontualidade, risco, margemBrutaAcumulada,
-        prazoMedioRecebimentoVendas, diferencaPercentualRisco, percentualRisco);
+                margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
+                capitalSocial, scorePontualidade, risco, margemBrutaAcumulada,
+                prazoMedioRecebimentoVendas, diferencaPercentualRisco, percentualRisco);
 
         return customer;
     }
 
     @Override
-    public void onSuccess() {
-        Log.d("DABUEK", "Customer Criado com sucesso.");
+    public void onSuccess(List<Integer> parameter) {
+        Log.d("DABUEK", "Classificação no Fragment: "+parameter.get(0));
     }
 
     @Override
     public void onError(Throwable throwable) {
-        Log.d("DABUEK", "Erro ao criar Customer: "+throwable.getMessage());
+        Log.d("DABUEK", "Erro no fragment: "+throwable.getMessage());
     }
 }

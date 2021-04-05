@@ -15,8 +15,9 @@ public class CustomerModel {
     private int maiorAtraso, titulosEmAberto, faturamentoBruto, margemBruta,
             periodoDemonstrativoEmMeses, custos, anoFundacao, capitalSocial,
             scorePontualidade, risco, cluster;
-    private float margemBrutaAcumulada, prazoMedioRecebimentoVendas,
+    private float prazoMedioRecebimentoVendas,
             diferencaPercentualRisco, percentualRisco;
+    private double margemBrutaAcumulada;
 
     public CustomerModel(){}
 
@@ -134,11 +135,11 @@ public class CustomerModel {
         this.risco = risco;
     }
 
-    public float getMargemBrutaAcumulada() {
+    public double getMargemBrutaAcumulada() {
         return margemBrutaAcumulada;
     }
 
-    public void setMargemBrutaAcumulada(float margemBrutaAcumulada) {
+    public void setMargemBrutaAcumulada(double margemBrutaAcumulada) {
         this.margemBrutaAcumulada = margemBrutaAcumulada;
     }
 

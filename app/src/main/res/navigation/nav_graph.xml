@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/dest_home"
-        android:name="br.com.wtecsuprimentos.view.fragments.CustomersFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.ClassifyCustomerFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_customers"/>
+        tools:layout="@layout/fragment_classify_customer"/>
 
 </navigation>
