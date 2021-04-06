@@ -13,7 +13,7 @@ public class RetrofitConfig {
 
     public RetrofitConfig() {
         build = new Retrofit.Builder()
-                    .baseUrl("http://192.168.43.172:7071/")
+                    .baseUrl("http://192.168.15.30:7071/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
@@ -21,5 +21,4 @@ public class RetrofitConfig {
     public ClassifyCustomerService getClassifyCustomerService(){
         return this.build.create(ClassifyCustomerService.class);
     }
-
 }

@@ -2,9 +2,10 @@ package br.com.wtecsuprimentos.device.repositories;
 
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -13,6 +14,8 @@ import br.com.wtecsuprimentos.device.network.retrofit.RetrofitConfig;
 import br.com.wtecsuprimentos.domain.bus.DataOut;
 import br.com.wtecsuprimentos.domain.entities.Customer;
 import br.com.wtecsuprimentos.domain.repository.ClassifyCustomerRepository;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -21,10 +24,9 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
     @Override
     public void classify(List<Customer> customers, DataOut.Callback<List<Integer>> callback) {
 
-        JSONObject customersToClassify = listToJSON(customers);
+        RequestBody customersToClassify = listToRequestBody(customers);
 
         Call<List<Integer>> call = new RetrofitConfig().getClassifyCustomerService().classify(customersToClassify);
-        Log.d("DABUEK",call.request().body().toString());
         call.enqueue(new retrofit2.Callback<List<Integer>>() {
             @Override
             public void onResponse(Call<List<Integer>> call, Response<List<Integer>> response) {
@@ -45,34 +47,34 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
 
     }
 
-    private JSONObject listToJSON(List<Customer> customers){
-        JSONObject customersToClassify = new JSONObject();
+    private RequestBody listToRequestBody(List<Customer> customers){
+        JsonObject customersToClassify = new JsonObject();
 
         try
         {
             try {
-                JSONArray outsideArray = new JSONArray();
-                JSONArray insideArray = new JSONArray();
+                JsonArray outsideArray = new JsonArray();
+                JsonArray insideArray = new JsonArray();
 
                 Customer c = createTestCustomer();
-                insideArray.put(c.getMaiorAtraso()); //OK
-                insideArray.put(c.getMargemBrutaAcumulada()); //OK
-                insideArray.put(c.getPrazoMedioRecebimentoVendas()); //OK
-                insideArray.put(c.getTitulosEmAberto()); // OK
-                insideArray.put(c.getDiferencaPercentualRisco()); //OK
-                insideArray.put(c.getPercentualRisco()); //OK
-                insideArray.put(c.getFaturamentoBruto()); //OK
-                insideArray.put(c.getMargemBruta()); //OK
-                insideArray.put(c.getPeriodoDemonstrativoEmMeses()); //OK
-                insideArray.put(c.getCustos()); //OK
-                insideArray.put(c.getAnoFundacao()); //OK
-                insideArray.put(c.getCapitalSocial()); //OK
-                insideArray.put(c.getScorePontualidade()); //OK
-                insideArray.put(1);
-                insideArray.put(0);
-                insideArray.put(0);
-                outsideArray.put(insideArray);
-                customersToClassify.put("data", outsideArray);
+                insideArray.add(c.getMaiorAtraso()); //OK
+                insideArray.add(c.getMargemBrutaAcumulada()); //OK
+                insideArray.add(c.getPrazoMedioRecebimentoVendas()); //OK
+                insideArray.add(c.getTitulosEmAberto()); // OK
+                insideArray.add(c.getDiferencaPercentualRisco()); //OK
+                insideArray.add(c.getPercentualRisco()); //OK
+                insideArray.add(c.getFaturamentoBruto()); //OK
+                insideArray.add(c.getMargemBruta()); //OK
+                insideArray.add(c.getPeriodoDemonstrativoEmMeses()); //OK
+                insideArray.add(c.getCustos()); //OK
+                insideArray.add(c.getAnoFundacao()); //OK
+                insideArray.add(c.getCapitalSocial()); //OK
+                insideArray.add(c.getScorePontualidade()); //OK
+                insideArray.add(1);
+                insideArray.add(0);
+                insideArray.add(0);
+                outsideArray.add(insideArray);
+                customersToClassify.add("data", outsideArray);
 
                 String jsonString = customersToClassify.toString();
                 Log.d("DABUEK", "Resultado do json: "+jsonString);
@@ -83,8 +85,8 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
         }catch (Exception e){
 
         }
-
-        return customersToClassify;
+        RequestBody rBody = RequestBody.create(MediaType.parse("application/json"), customersToClassify.toString());
+        return rBody;
     }
 
     private Customer createTestCustomer(){

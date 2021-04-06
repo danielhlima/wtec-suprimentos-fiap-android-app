@@ -55,7 +55,7 @@ public class CustomersFragment extends Fragment implements DataOut.Callback<List
     @Override
     public void onSuccess(List<Customer> customers) {
         for(Customer c : customers){
-            Log.d("DABUEK", "Customer: "+c.getRazaoSocial());
+            Log.d("DABUEK", "Customer: "+c.toString());
         }
     }
 

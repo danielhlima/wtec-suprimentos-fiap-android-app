@@ -170,4 +170,25 @@ public class Customer implements Serializable {
     public int hashCode() {
         return Objects.hash(razaoSocial);
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "razaoSocial='" + razaoSocial + '\'' +
+                ", maiorAtraso=" + maiorAtraso +
+                ", titulosEmAberto=" + titulosEmAberto +
+                ", faturamentoBruto=" + faturamentoBruto +
+                ", margemBruta=" + margemBruta +
+                ", periodoDemonstrativoEmMeses=" + periodoDemonstrativoEmMeses +
+                ", custos=" + custos +
+                ", anoFundacao=" + anoFundacao +
+                ", capitalSocial=" + capitalSocial +
+                ", scorePontualidade=" + scorePontualidade +
+                ", risco=" + risco +
+                ", prazoMedioRecebimentoVendas=" + prazoMedioRecebimentoVendas +
+                ", diferencaPercentualRisco=" + diferencaPercentualRisco +
+                ", percentualRisco=" + percentualRisco +
+                ", margemBrutaAcumulada=" + margemBrutaAcumulada +
+                '}';
+    }
 }
