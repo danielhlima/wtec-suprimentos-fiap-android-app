@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_classification">
+    app:startDestination="@id/askForCreditFragment">
 
     <fragment
         android:id="@+id/dest_classification"
@@ -20,6 +20,11 @@
         android:name="br.com.wtecsuprimentos.view.fragments.RegisterCustomerFragment"
         android:label="fragment_register_customer"
         tools:layout="@layout/fragment_register_customer" />
+    <fragment
+        android:id="@+id/askForCreditFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.AskForCreditFragment"
+        android:label="fragment_ask_for_credit"
+        tools:layout="@layout/fragment_ask_for_credit" />
 
 
 </navigation>

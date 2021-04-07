@@ -14,10 +14,16 @@ public class CustomerModel {
     private String razaoSocial;
     private int maiorAtraso, titulosEmAberto, faturamentoBruto, margemBruta,
             periodoDemonstrativoEmMeses, custos, anoFundacao, capitalSocial,
-            scorePontualidade, risco, cluster;
+            scorePontualidade, risco;
     private float prazoMedioRecebimentoVendas,
             diferencaPercentualRisco, percentualRisco;
     private double margemBrutaAcumulada;
+
+    //Additional parameters for regression
+    private float limiteEmpresaAnaliseCredito;
+    private int emrpesaME;
+    private int restricao;
+    private int cluster;
 
     public CustomerModel(){}
 
@@ -37,6 +43,10 @@ public class CustomerModel {
         this.prazoMedioRecebimentoVendas = customer.getPrazoMedioRecebimentoVendas();
         this.diferencaPercentualRisco = customer.getDiferencaPercentualRisco();
         this.percentualRisco = customer.getPercentualRisco();
+        this.limiteEmpresaAnaliseCredito = customer.getLimiteEmpresaAnaliseCredito();
+        this.emrpesaME = customer.getEmrpesaME();
+        this.restricao = customer.getRestricao();
+        this.cluster = customer.getCluster();
     }
 
     public int getId() {
@@ -173,5 +183,29 @@ public class CustomerModel {
 
     public void setCluster(int cluster) {
         this.cluster = cluster;
+    }
+
+    public float getLimiteEmpresaAnaliseCredito() {
+        return limiteEmpresaAnaliseCredito;
+    }
+
+    public void setLimiteEmpresaAnaliseCredito(float limiteEmpresaAnaliseCredito) {
+        this.limiteEmpresaAnaliseCredito = limiteEmpresaAnaliseCredito;
+    }
+
+    public int getEmrpesaME() {
+        return emrpesaME;
+    }
+
+    public void setEmrpesaME(int emrpesaME) {
+        this.emrpesaME = emrpesaME;
+    }
+
+    public int getRestricao() {
+        return restricao;
+    }
+
+    public void setRestricao(int restricao) {
+        this.restricao = restricao;
     }
 }

@@ -77,7 +77,7 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
                 customersToClassify.add("data", outsideArray);
 
                 String jsonString = customersToClassify.toString();
-                Log.d("DABUEK", "Resultado do json: "+jsonString);
+                Log.d("DABUEK", "Resultado do json Classificação: "+jsonString);
 
             }catch(Exception e){
 
@@ -90,26 +90,31 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
     }
 
     private Customer createTestCustomer(){
-        String razaoSocial = "Abbie Shaw";
-        int maiorAtraso = 12; //OK
-        int titulosEmAberto = 1491736; //OK
-        int faturamentoBruto = 0; //OK
+        String razaoSocial = "James Richardson-Patel";
+        int maiorAtraso = 0; //OK
+        int titulosEmAberto = 0; //OK
+        int faturamentoBruto = 1766880; //OK
         int margemBruta = 0; //OK
-        int periodoDemonstrativoEmMeses = 1; //OK
+        int periodoDemonstrativoEmMeses = 12; //OK
         int custos = 0; //OK
-        int anoFundacao = 2011; //OK
-        int capitalSocial = 979957432; //OK
+        int anoFundacao = 2003; //OK
+        int capitalSocial = 90000; //OK
         int scorePontualidade = 1; //OK
         int risco = 1; //OK
-        double margemBrutaAcumulada = 5543835022.0; //OK Corrigida
-        float prazoMedioRecebimentoVendas = 15; //OK Corrigido
-        float diferencaPercentualRisco = 75; //OK Corrigido
-        float percentualRisco = 25; // OK Corrigido
+        double margemBrutaAcumulada = 0.25; //OK Corrigida
+        float prazoMedioRecebimentoVendas = 0; //OK Corrigido
+        float diferencaPercentualRisco = 0.71f; //OK Corrigido0.28
+        float percentualRisco = 0.28f; // OK Corrigido
+
+        float limiteEmpresaAnaliseCredito = 43200f;
+        int empresaME = 1;
+        int restricao = 0;
 
         Customer customer = new Customer(razaoSocial, maiorAtraso, titulosEmAberto, faturamentoBruto,
-                margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
-                capitalSocial, scorePontualidade, risco, margemBrutaAcumulada,
-                prazoMedioRecebimentoVendas, diferencaPercentualRisco, percentualRisco);
+        margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
+        capitalSocial, scorePontualidade, risco, prazoMedioRecebimentoVendas,
+        diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada,
+                limiteEmpresaAnaliseCredito, empresaME, restricao, -1);
 
         return customer;
     }

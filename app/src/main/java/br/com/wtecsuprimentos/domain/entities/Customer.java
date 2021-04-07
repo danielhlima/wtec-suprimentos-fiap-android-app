@@ -15,6 +15,12 @@ public class Customer implements Serializable {
             diferencaPercentualRisco, percentualRisco;
     private double margemBrutaAcumulada;
 
+    //Additional parameters for regression
+    private float limiteEmpresaAnaliseCredito;
+    private int emrpesaME;
+    private int restricao;
+    private int cluster;
+
     public Customer(){}
 
     public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, int faturamentoBruto,
@@ -36,6 +42,32 @@ public class Customer implements Serializable {
         this.prazoMedioRecebimentoVendas = prazoMedioRecebimentoVendas;
         this.diferencaPercentualRisco = diferencaPercentualRisco;
         this.percentualRisco = percentualRisco;
+    }
+
+    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, int faturamentoBruto,
+                    int margemBruta, int periodoDemonstrativoEmMeses, int custos, int anoFundacao,
+                    int capitalSocial, int scorePontualidade, int risco, float prazoMedioRecebimentoVendas,
+                    float diferencaPercentualRisco, float percentualRisco, double margemBrutaAcumulada,
+                    float limiteEmpresaAnaliseCredito, int emrpesaME, int restricao, int cluster) {
+        this.razaoSocial = razaoSocial;
+        this.maiorAtraso = maiorAtraso;
+        this.titulosEmAberto = titulosEmAberto;
+        this.faturamentoBruto = faturamentoBruto;
+        this.margemBruta = margemBruta;
+        this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
+        this.custos = custos;
+        this.anoFundacao = anoFundacao;
+        this.capitalSocial = capitalSocial;
+        this.scorePontualidade = scorePontualidade;
+        this.risco = risco;
+        this.prazoMedioRecebimentoVendas = prazoMedioRecebimentoVendas;
+        this.diferencaPercentualRisco = diferencaPercentualRisco;
+        this.percentualRisco = percentualRisco;
+        this.margemBrutaAcumulada = margemBrutaAcumulada;
+        this.limiteEmpresaAnaliseCredito = limiteEmpresaAnaliseCredito;
+        this.emrpesaME = emrpesaME;
+        this.restricao = restricao;
+        this.cluster = cluster;
     }
 
     public String getRazaoSocial() {
@@ -156,6 +188,38 @@ public class Customer implements Serializable {
 
     public void setPercentualRisco(float percentualRisco) {
         this.percentualRisco = percentualRisco;
+    }
+
+    public float getLimiteEmpresaAnaliseCredito() {
+        return limiteEmpresaAnaliseCredito;
+    }
+
+    public void setLimiteEmpresaAnaliseCredito(float limiteEmpresaAnaliseCredito) {
+        this.limiteEmpresaAnaliseCredito = limiteEmpresaAnaliseCredito;
+    }
+
+    public int getEmrpesaME() {
+        return emrpesaME;
+    }
+
+    public void setEmrpesaME(int emrpesaME) {
+        this.emrpesaME = emrpesaME;
+    }
+
+    public int getRestricao() {
+        return restricao;
+    }
+
+    public void setRestricao(int restricao) {
+        this.restricao = restricao;
+    }
+
+    public int getCluster() {
+        return cluster;
+    }
+
+    public void setCluster(int cluster) {
+        this.cluster = cluster;
     }
 
     @Override
