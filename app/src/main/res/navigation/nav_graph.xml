@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/askForCreditFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/dest_classification"
@@ -25,6 +25,23 @@
         android:name="br.com.wtecsuprimentos.view.fragments.AskForCreditFragment"
         android:label="fragment_ask_for_credit"
         tools:layout="@layout/fragment_ask_for_credit" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/chooseSimulationFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.ChooseSimulationFragment"
+        android:label="fragment_choose_simulation"
+        tools:layout="@layout/fragment_choose_simulation" />
 
+    <action
+        android:id="@+id/global_action_dest_choose_simulation"
+        app:destination="@id/chooseSimulationFragment"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/slide_out_right"
+        app:popEnterAnim="@android:anim/fade_out"
+        app:popExitAnim="@android:anim/fade_out" />
 
 </navigation>

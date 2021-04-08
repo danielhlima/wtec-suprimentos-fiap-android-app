@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Wtec Suprimentos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="greeting">Olá!</string>
+    <string name="home_txt1">Seja bem vindo(a) ao aplicativo simulador Wtec Suprimentos!</string>
+    <string name="home_txt2">A partir da próxima tela você poderá fazer uma simulação como um cliente da Wtec solicitando crédito, ou um analista da Wtec que vai categorizar um novo cliente.</string>
+    <string name="bt_choose1">Simular como cliente solicitando crédito</string>
+    <string name="bt_choose2">Simular como Analista classificando novo cliente</string>
+
 </resources>
