@@ -1,6 +1,5 @@
 package br.com.wtecsuprimentos.presenter;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
@@ -13,26 +12,25 @@ import br.com.wtecsuprimentos.domain.usecases.RegisterCustomerUseCase;
 
 public class RegisterCustomerPresenter implements DataIn.Callback {
 
-    private RegisterCustomerUseCase registerCustomerUseCase;
+    private RegisterCustomerUseCase useCase;
     private RegisterCustomerRepository registerCustomerRepository;
     private Context context;
     private DataIn.Callback callback;
-    private DataIn.Callback registerCustomerCallBack = this;
 
     public RegisterCustomerPresenter(Context context, DataIn.Callback callback){
         this.context = context;
-        registerCustomerRepository = new RegisterCustomerRepositoryImpl(context);
         this.callback = callback;
+        registerCustomerRepository = new RegisterCustomerRepositoryImpl(context);
+        useCase = new RegisterCustomerUseCase(registerCustomerRepository, this);
     }
 
     public void registerCustomer(Customer customer){
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                registerCustomerRepository.registerCustomer(customer, registerCustomerCallBack);
+                useCase.registerCustomer(customer);
             }
         });
-
     }
 
     @Override

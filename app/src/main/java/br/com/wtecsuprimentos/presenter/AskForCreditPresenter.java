@@ -18,20 +18,19 @@ public class AskForCreditPresenter implements DataOut.Callback<Double> {
     private AskForCreditRepository repository;
     private Context context;
     private DataOut.Callback<Double> callback;
-    private DataOut.Callback<Double> askForCreditCallback;
 
     public AskForCreditPresenter(Context context, DataOut.Callback<Double> callback) {
         this.context = context;
         this.callback = callback;
-        askForCreditCallback = this;
         repository = new AskForCreditRepositoryImpl();
+        useCase = new AskForCreditUseCase(repository,this);
     }
 
     public void askForCredit(Customer customer, double value){
         AppExecutors.getInstance().networkIO().execute(new Runnable() {
             @Override
             public void run() {
-                repository.aksForCredit(customer, value, askForCreditCallback);
+                useCase.askForCredit(customer, value);
             }
         });
     }

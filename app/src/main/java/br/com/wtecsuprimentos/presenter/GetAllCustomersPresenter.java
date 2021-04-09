@@ -14,23 +14,23 @@ import br.com.wtecsuprimentos.domain.usecases.GetAllCustomersUseCase;
 
 public class GetAllCustomersPresenter implements DataOut.Callback<List<Customer>> {
 
-    private GetAllCustomersUseCase getAllCustomersUseCase;
+    private GetAllCustomersUseCase useCase;
     private GetAllCustomersRepository getAllCustomersRepository;
     private Context context;
     private DataOut.Callback<List<Customer>> callback;
-    private DataOut.Callback<List<Customer>> getAllCustomersCallback = this;
 
     public GetAllCustomersPresenter(Context context, DataOut.Callback<List<Customer>> callback) {
         this.context = context;
         this.callback = callback;
         getAllCustomersRepository = new GetAllCustomersRepositoryImpl(context);
+        useCase = new GetAllCustomersUseCase(getAllCustomersRepository, this);
     }
     
     public void getAllCustomers(){
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                getAllCustomersRepository.getAllCustomers(getAllCustomersCallback);
+                useCase.getAllCustomers();
             }
         });
     }
