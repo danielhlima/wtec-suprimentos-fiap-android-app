@@ -8,23 +8,23 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String razaoSocial;
-    private int maiorAtraso, titulosEmAberto, faturamentoBruto, margemBruta,
-            periodoDemonstrativoEmMeses, custos, anoFundacao, capitalSocial,
+    private int maiorAtraso, titulosEmAberto, margemBruta,
+            periodoDemonstrativoEmMeses, anoFundacao, capitalSocial,
             scorePontualidade, risco;
-    private float prazoMedioRecebimentoVendas,
+    private float prazoMedioRecebimentoVendas, custos,
             diferencaPercentualRisco, percentualRisco;
     private double margemBrutaAcumulada;
 
     //Additional parameters for regression
-    private float limiteEmpresaAnaliseCredito;
+    private float limiteEmpresaAnaliseCredito, faturamentoBruto;
     private int emrpesaME;
     private int restricao;
     private int cluster;
 
     public Customer(){}
 
-    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, int faturamentoBruto,
-                    int margemBruta, int periodoDemonstrativoEmMeses, int custos, int anoFundacao,
+    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, float faturamentoBruto,
+                    int margemBruta, int periodoDemonstrativoEmMeses, float custos, int anoFundacao,
                     int capitalSocial, int scorePontualidade, int risco, double margemBrutaAcumulada,
                     float prazoMedioRecebimentoVendas, float diferencaPercentualRisco, float percentualRisco) {
         this.razaoSocial = razaoSocial;
@@ -44,8 +44,8 @@ public class Customer implements Serializable {
         this.percentualRisco = percentualRisco;
     }
 
-    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, int faturamentoBruto,
-                    int margemBruta, int periodoDemonstrativoEmMeses, int custos, int anoFundacao,
+    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, float faturamentoBruto,
+                    int margemBruta, int periodoDemonstrativoEmMeses, float custos, int anoFundacao,
                     int capitalSocial, int scorePontualidade, int risco, float prazoMedioRecebimentoVendas,
                     float diferencaPercentualRisco, float percentualRisco, double margemBrutaAcumulada,
                     float limiteEmpresaAnaliseCredito, int emrpesaME, int restricao, int cluster) {
@@ -94,11 +94,11 @@ public class Customer implements Serializable {
         this.titulosEmAberto = titulosEmAberto;
     }
 
-    public int getFaturamentoBruto() {
+    public float getFaturamentoBruto() {
         return faturamentoBruto;
     }
 
-    public void setFaturamentoBruto(int faturamentoBruto) {
+    public void setFaturamentoBruto(float faturamentoBruto) {
         this.faturamentoBruto = faturamentoBruto;
     }
 
@@ -118,11 +118,11 @@ public class Customer implements Serializable {
         this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
     }
 
-    public int getCustos() {
+    public float getCustos() {
         return custos;
     }
 
-    public void setCustos(int custos) {
+    public void setCustos(float custos) {
         this.custos = custos;
     }
 

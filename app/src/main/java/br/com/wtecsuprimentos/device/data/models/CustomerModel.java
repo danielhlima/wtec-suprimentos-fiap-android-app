@@ -12,15 +12,15 @@ public class CustomerModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String razaoSocial;
-    private int maiorAtraso, titulosEmAberto, faturamentoBruto, margemBruta,
-            periodoDemonstrativoEmMeses, custos, anoFundacao, capitalSocial,
+    private int maiorAtraso, titulosEmAberto, margemBruta,
+            periodoDemonstrativoEmMeses, anoFundacao, capitalSocial,
             scorePontualidade, risco;
-    private float prazoMedioRecebimentoVendas,
+    private float prazoMedioRecebimentoVendas, custos,
             diferencaPercentualRisco, percentualRisco;
     private double margemBrutaAcumulada;
 
     //Additional parameters for regression
-    private float limiteEmpresaAnaliseCredito;
+    private float limiteEmpresaAnaliseCredito, faturamentoBruto;
     private int emrpesaME;
     private int restricao;
     private int cluster;
@@ -81,11 +81,11 @@ public class CustomerModel {
         this.titulosEmAberto = titulosEmAberto;
     }
 
-    public int getFaturamentoBruto() {
+    public float getFaturamentoBruto() {
         return faturamentoBruto;
     }
 
-    public void setFaturamentoBruto(int faturamentoBruto) {
+    public void setFaturamentoBruto(float faturamentoBruto) {
         this.faturamentoBruto = faturamentoBruto;
     }
 
@@ -105,11 +105,11 @@ public class CustomerModel {
         this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
     }
 
-    public int getCustos() {
+    public float getCustos() {
         return custos;
     }
 
-    public void setCustos(int custos) {
+    public void setCustos(float custos) {
         this.custos = custos;
     }
 
