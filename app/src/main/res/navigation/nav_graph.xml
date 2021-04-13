@@ -34,7 +34,11 @@
         android:id="@+id/chooseSimulationFragment"
         android:name="br.com.wtecsuprimentos.view.fragments.ChooseSimulationFragment"
         android:label="fragment_choose_simulation"
-        tools:layout="@layout/fragment_choose_simulation" />
+        tools:layout="@layout/fragment_choose_simulation" >
+        <action
+            android:id="@+id/action_chooseSimulationFragment_to_classificationHomeFragment"
+            app:destination="@id/classificationHomeFragment" />
+    </fragment>
 
     <action
         android:id="@+id/global_action_dest_choose_simulation"
@@ -43,5 +47,14 @@
         app:exitAnim="@android:anim/slide_out_right"
         app:popEnterAnim="@android:anim/fade_out"
         app:popExitAnim="@android:anim/fade_out" />
+    <fragment
+        android:id="@+id/classificationHomeFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.ClassificationHomeFragment"
+        android:label="fragment_classification_home"
+        tools:layout="@layout/fragment_classification_home" >
+        <action
+            android:id="@+id/action_classificationHomeFragment_to_dest_classification"
+            app:destination="@id/dest_classification" />
+    </fragment>
 
 </navigation>

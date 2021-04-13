@@ -12,10 +12,10 @@ import android.widget.Button;
 
 import br.com.wtecsuprimentos.R;
 
+public class ClassificationHomeFragment extends Fragment {
 
-public class ChooseSimulationFragment extends Fragment {
+    public ClassificationHomeFragment() {}
 
-    public ChooseSimulationFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,19 +25,13 @@ public class ChooseSimulationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_choose_simulation, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_classification_home, container, false);
 
-        ((Button)view.findViewById(R.id.bt_go_class)).setOnClickListener(new View.OnClickListener() {
+        ((Button)view.findViewById(R.id.bt_go_test_class)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_chooseSimulationFragment_to_classificationHomeFragment);
-            }
-        });
-
-        ((Button)view.findViewById(R.id.bt_go_regress)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_classificationHomeFragment_to_dest_classification);
             }
         });
 

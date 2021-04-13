@@ -10,16 +10,24 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class RetrofitConfig {
 
-    private String urlProd = "https://classifierfunction.azurewebsites.net/";
+    private String urlProdClassification = "https://classifierfunction.azurewebsites.net/";
+    private String urlProdRegression = "https://httpregression.azurewebsites.net/";
     private String urlDev = "http://192.168.0.104:7071/";
 
     private Retrofit build;
 
-    public RetrofitConfig() {
-        build = new Retrofit.Builder()
-                    .baseUrl(urlDev)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .build();
+    public RetrofitConfig(boolean classification) {
+        if(classification){
+            build = new Retrofit.Builder()
+                    .baseUrl(urlProdClassification)
+                    .addConverterFactory(JacksonConverterFactory.create())
+                    .build();
+        }else{
+            build = new Retrofit.Builder()
+                    .baseUrl(urlProdRegression)
+                    .addConverterFactory(JacksonConverterFactory.create())
+                    .build();
+        }
     }
 
     public ClassifyCustomerService getClassifyCustomerService(){

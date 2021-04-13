@@ -26,7 +26,7 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
 
         RequestBody customersToClassify = listToRequestBody(customers);
 
-        Call<List<Integer>> call = new RetrofitConfig().getClassifyCustomerService().classify(customersToClassify);
+        Call<List<Integer>> call = new RetrofitConfig(true).getClassifyCustomerService().classify(customersToClassify);
         call.enqueue(new retrofit2.Callback<List<Integer>>() {
             @Override
             public void onResponse(Call<List<Integer>> call, Response<List<Integer>> response) {
@@ -56,7 +56,7 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
                 JsonArray outsideArray = new JsonArray();
                 JsonArray insideArray = new JsonArray();
 
-                Customer c = createTestCustomer();
+                Customer c = customers.get(0);
                 insideArray.add(c.getMaiorAtraso()); //OK
                 insideArray.add(c.getMargemBrutaAcumulada()); //OK
                 insideArray.add(c.getPrazoMedioRecebimentoVendas()); //OK

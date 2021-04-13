@@ -22,7 +22,7 @@ public class AskForCreditRepositoryImpl implements AskForCreditRepository {
     public void aksForCredit(Customer customer, double value, DataOut.Callback<Double> callback) {
 
         RequestBody askForCreditBody = createBody(customer, value);
-        Call<Double> call = new RetrofitConfig().getAskForCreditService().askForCredit(askForCreditBody);
+        Call<Double> call = new RetrofitConfig(false).getAskForCreditService().askForCredit(askForCreditBody);
         call.enqueue(new retrofit2.Callback<Double>() {
             @Override
             public void onResponse(Call<Double> call, Response<Double> response) {
