@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ import br.com.wtecsuprimentos.view.viewmodel.ClassifyCustomerViewModel;
 public class ClassifyCustomerFragment extends Fragment implements DataOut.Callback<List<Integer>> {
 
     private ClassifyCustomerViewModel viewModel;
+
+    private LinearLayout progressBar;
 
     private EditText etNome, etMaiorAtraso, etTitulosEmAberto, etFaturamentoBruto, etMargemBruta,
     etPeriodoDemonstrativoEmMeses, etCustos, etAnoFundacao, etCapitalSocial, etScorePontualidade,
@@ -63,6 +67,8 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
                 classifyCustomer();
             }
         });
+
+        progressBar = (LinearLayout)view.findViewById(R.id.ll_progressBar_classify);
 
         etNome = (EditText)view.findViewById(R.id.editTextTextPersonName);
         etNome.addTextChangedListener(new TextValidator(etNome) {
@@ -466,6 +472,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
 
     private void classifyCustomer() {
         if(areFieldsValidated()) {
+            progressBar.setVisibility(View.VISIBLE);
             Customer c = createCustomer();
             if (c != null) {
                 List<Customer> customers = new ArrayList<Customer>();
@@ -474,6 +481,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             }
         }else{
             Toast.makeText(getContext(), R.string.erro_validacao, Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -560,10 +568,12 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
     @Override
     public void onSuccess(List<Integer> parameter) {
         Log.d("DABUEK", "Classificação no Fragment: "+parameter.get(0));
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void onError(Throwable throwable) {
         Log.d("DABUEK", "Erro no fragment: "+throwable.getMessage());
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
