@@ -55,5 +55,7 @@
     <string name="erro_diferenca_percentual_risco">O campo diferença percentual de risco deve ter duas casas decimais</string>
     <string name="erro_percentual_risco">O campo percentual risco deve ter duas casas decimais</string>
     <string name="erro_validacao">Ainda existem campos para preencher</string>
+    <string name="cluster">Cluster</string>
+    <string name="cluster_message">"Este cliente pertence ao Cluster: "</string>
 
 </resources>

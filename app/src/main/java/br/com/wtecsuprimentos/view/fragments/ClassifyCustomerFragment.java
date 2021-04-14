@@ -1,8 +1,10 @@
 package br.com.wtecsuprimentos.view.fragments;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -20,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigInteger;
@@ -631,6 +634,23 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         Log.d("DABUEK", "Classificação no Fragment: "+parameter.get(0));
         progressBar.setVisibility(View.INVISIBLE);
         scrollView.setVisibility(View.VISIBLE);
+
+
+        LayoutInflater li = getLayoutInflater();
+        View view = li.inflate(R.layout.alert_classification, null);
+        ((TextView)view.findViewById(R.id.tv_alert_customer_name)).setText(customer.getRazaoSocial());
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setView(view);
+        AlertDialog alert = builder.create();
+        alert.show();
+
+        view.findViewById(R.id.bt_alert_dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alert.dismiss();
+            }
+        });
     }
 
     @Override
