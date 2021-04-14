@@ -5,6 +5,10 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public abstract class TextValidator implements TextWatcher {
 
     private final EditText editText;
@@ -21,9 +25,8 @@ public abstract class TextValidator implements TextWatcher {
     }
 
     @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
-    }
 
     @Override
     public void afterTextChanged(Editable s) {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,41 +17,59 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
+import java.math.BigInteger;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.sapereaude.maskedEditText.MaskedEditText;
+import com.santalu.maskara.widget.MaskEditText;
 import br.com.wtecsuprimentos.R;
 import br.com.wtecsuprimentos.domain.bus.DataOut;
 import br.com.wtecsuprimentos.domain.entities.Customer;
 import br.com.wtecsuprimentos.view.validator.TextValidator;
 import br.com.wtecsuprimentos.view.viewmodel.ClassifyCustomerViewModel;
+import faranjit.currency.edittext.CurrencyEditText;
 
 
 public class ClassifyCustomerFragment extends Fragment implements DataOut.Callback<List<Integer>> {
 
     private ClassifyCustomerViewModel viewModel;
-
     private LinearLayout progressBar;
+    private ScrollView scrollView;
 
-    private EditText etNome, etMaiorAtraso, etTitulosEmAberto, etFaturamentoBruto, etMargemBruta,
-    etPeriodoDemonstrativoEmMeses, etCustos, etAnoFundacao, etCapitalSocial, etScorePontualidade,
-    etPrazoMedioRecebimentoVendas, etLimiteEmpresaAnaliseCredito;
+
+    private EditText etNome, etMaiorAtraso, etPeriodoDemonstrativoEmMeses, etAnoFundacao, etScorePontualidade,
+    etPrazoMedioRecebimentoVendas;
+    private CurrencyEditText etFaturamentoBruto, etMargemBruta, etTitulosEmAberto, etCapitalSocial, etCustos, etLimiteEmpresaAnaliseCredito;
+    private MaskEditText etMargemBrutaAcumulada, etDiferencaPercentualRisco, etPercentualRisco;
 
     private boolean etNomeValidated, etMaiorAtrasoValidated, etTitulosEmAbertoValidated,
             etFaturamentoBrutoValidated, etMargemBrutaValidated, etPeriodoDemonstrativoEmMesesValidated,
             etCustosValidated, etAnoFundacaoValidated, etCapitalSocialValidated, etScorePontualidadeValidated,
             etPrazoMedioRecebimentoVendasValidated, etLimiteEmpresaAnaliseCreditoValidated;
-
     private int risco = 1, microempresa = 1, restricao = 0;
 
-    private MaskedEditText etMargemBrutaAcumulada, etDiferencaPercentualRisco, etPercentualRisco;
+    private Customer customer;
 
-    public ClassifyCustomerFragment() { }
+
+    public ClassifyCustomerFragment() {
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null){
+            Bundle bundle = getArguments();
+            customer = (Customer) bundle.getSerializable("customer");
+            Log.d("DABUEK", "Customer null? "+(customer == null));
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +88,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
         progressBar = (LinearLayout)view.findViewById(R.id.ll_progressBar_classify);
+        scrollView = (ScrollView)view.findViewById(R.id.sv_form_classify);
 
         etNome = (EditText)view.findViewById(R.id.editTextTextPersonName);
         etNome.addTextChangedListener(new TextValidator(etNome) {
@@ -129,7 +149,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             }
         });
 
-        etTitulosEmAberto = (EditText)view.findViewById(R.id.editTextTitulosEmAberto);
+        etTitulosEmAberto = (CurrencyEditText)view.findViewById(R.id.editTextTitulosEmAberto);
         etTitulosEmAberto.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -154,7 +174,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etFaturamentoBruto = (EditText)view.findViewById(R.id.editTextFaturamentoBruto);
+        etFaturamentoBruto = (CurrencyEditText) view.findViewById(R.id.editTextFaturamentoBruto);
         etFaturamentoBruto.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -178,7 +198,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etMargemBruta = (EditText)view.findViewById(R.id.editTextMargemBruta);
+        etMargemBruta = (CurrencyEditText) view.findViewById(R.id.editTextMargemBruta);
         etMargemBruta.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -226,7 +246,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etCustos = (EditText)view.findViewById(R.id.editTextCustos);
+        etCustos = (CurrencyEditText)view.findViewById(R.id.editTextCustos);
         etCustos.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -285,7 +305,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etCapitalSocial = (EditText)view.findViewById(R.id.editTextCapitalSocial);
+        etCapitalSocial = (CurrencyEditText)view.findViewById(R.id.editTextCapitalSocial);
         etCapitalSocial.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -333,7 +353,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etLimiteEmpresaAnaliseCredito = (EditText)view.findViewById(R.id.editTextLimiteEmpresaAnaliseCredito);
+        etLimiteEmpresaAnaliseCredito = (CurrencyEditText) view.findViewById(R.id.editTextLimiteEmpresaAnaliseCredito);
         etLimiteEmpresaAnaliseCredito.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -381,9 +401,9 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         });
 
 
-        etMargemBrutaAcumulada = (MaskedEditText)view.findViewById(R.id.editTextMargemBrutaAcumulada);
-        etDiferencaPercentualRisco = (MaskedEditText)view.findViewById(R.id.editTextDiferencaPercentualRisco);
-        etPercentualRisco = (MaskedEditText)view.findViewById(R.id.editTextPercentualRisco);
+        etMargemBrutaAcumulada = (MaskEditText)view.findViewById(R.id.editTextMargemBrutaAcumulada);
+        etDiferencaPercentualRisco = (MaskEditText)view.findViewById(R.id.editTextDiferencaPercentualRisco);
+        etPercentualRisco = (MaskEditText)view.findViewById(R.id.editTextPercentualRisco);
 
         ((RadioGroup)view.findViewById(R.id.radioGroupRisco)).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -445,6 +465,80 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
     }
 
     @Override
+    public void onViewCreated(View view, Bundle bundle){
+        super.onViewCreated(view, bundle);
+        verifyAutoFillIfIsNeeded();
+    }
+
+    private void verifyAutoFillIfIsNeeded() {
+
+        if(customer != null){
+            etNome.setText(customer.getRazaoSocial());
+            etMaiorAtraso.setText(customer.getMaiorAtraso()+"");
+            etTitulosEmAberto.setText(customer.getTitulosEmAberto()*100+"");
+            etFaturamentoBruto.setText(customer.getFaturamentoBruto()*100+"");
+            etPeriodoDemonstrativoEmMeses.setText(customer.getPeriodoDemonstrativoEmMeses()+"");
+            etMargemBruta.setText(customer.getMargemBruta()*100+"");
+            etCustos.setText(customer.getCustos()*100+"");
+            etAnoFundacao.setText(customer.getAnoFundacao()+"");
+            etCapitalSocial.setText(customer.getCapitalSocial()*100+"");
+            etScorePontualidade.setText(customer.getScorePontualidade()+"");
+            etPrazoMedioRecebimentoVendas.setText(customer.getPrazoMedioRecebimentoVendas()+"");
+            etLimiteEmpresaAnaliseCredito.setText(customer.getLimiteEmpresaAnaliseCredito()*100+"");
+            risco = customer.getRisco();
+
+            switch (risco){
+                case 1:
+                    ((RadioButton)getView().findViewById(R.id.radioButtonBaixoRisco)).setChecked(true);
+                    break;
+
+                case 2:
+                    ((RadioButton)getView().findViewById(R.id.radioButtonMedioRisco)).setChecked(true);
+                    break;
+
+                case 3:
+                    ((RadioButton)getView().findViewById(R.id.radioButtonMuitoBaixoRisco)).setChecked(true);
+                    break;
+
+                case 4:
+                    ((RadioButton)getView().findViewById(R.id.radioButtonAltoRisco)).setChecked(true);
+                    break;
+            }
+
+            microempresa = customer.getEmrpesaME();
+            if(microempresa==0){
+                ((RadioButton)getView().findViewById(R.id.radioButtonEmpresaMESim)).setChecked(true);
+            }else{
+                ((RadioButton)getView().findViewById(R.id.radioButtonEmpresaMENao)).setChecked(true);
+            }
+
+            restricao = customer.getRestricao();
+            if(restricao==0){
+                ((RadioButton)getView().findViewById(R.id.radioButtonRestricaoSim)).setChecked(true);
+            }else{
+                ((RadioButton)getView().findViewById(R.id.radioButtonRestricaoNao)).setChecked(true);
+            }
+
+            etMargemBrutaAcumulada.setText(customer.getMargemBrutaAcumulada()+"%");
+            etDiferencaPercentualRisco.setText(customer.getDiferencaPercentualRisco()+"%");
+            etPercentualRisco.setText(customer.getPercentualRisco()+"%");
+            customer = null;
+            etNomeValidated = true;
+            etMaiorAtrasoValidated = true;
+            etTitulosEmAbertoValidated = true;
+            etFaturamentoBrutoValidated = true;
+            etMargemBrutaValidated = true;
+            etPeriodoDemonstrativoEmMesesValidated = true;
+            etCustosValidated = true;
+            etAnoFundacaoValidated = true;
+            etCapitalSocialValidated = true;
+            etScorePontualidadeValidated = true;
+            etPrazoMedioRecebimentoVendasValidated = true;
+            etLimiteEmpresaAnaliseCreditoValidated = true;
+        }
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         inflater.inflate(R.menu.menu_frag_class, menu);
         super.onCreateOptionsMenu(menu, inflater);
@@ -463,7 +557,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
                 break;
 
             case R.id.menu_item_listar_classificar:
-
+                Navigation.findNavController(getView()).navigate(R.id.action_dest_classification_to_dest_list_customers_to_classify);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -472,16 +566,25 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
 
     private void classifyCustomer() {
         if(areFieldsValidated()) {
-            progressBar.setVisibility(View.VISIBLE);
-            Customer c = createCustomer();
-            if (c != null) {
-                List<Customer> customers = new ArrayList<Customer>();
-                customers.add(c);
-                viewModel.classifyCustomer(customers, this);
+            try{
+                progressBar.setVisibility(View.VISIBLE);
+                scrollView.setVisibility(View.INVISIBLE);
+                customer = createCustomer();
+                if (customer != null) {
+                    List<Customer> customers = new ArrayList<Customer>();
+                    customers.add(customer);
+                    viewModel.classifyCustomer(customers, this);
+                }
+            }catch(Exception e){
+                Log.d("DABUEK", "Exceção criando Customer: "+e.getMessage());
+                progressBar.setVisibility(View.INVISIBLE);
+                scrollView.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }else{
             Toast.makeText(getContext(), R.string.erro_validacao, Toast.LENGTH_LONG).show();
             progressBar.setVisibility(View.INVISIBLE);
+            scrollView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -493,87 +596,47 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
                 etLimiteEmpresaAnaliseCreditoValidated);
     }
 
-    private Customer createCustomer() {
-        String tDiffPercRisco =  etDiferencaPercentualRisco.getText().toString();
-        if(tDiffPercRisco.endsWith("%") ||
-            tDiffPercRisco.endsWith(".")){
-            tDiffPercRisco = tDiffPercRisco.substring(0, tDiffPercRisco.length()-1);
-        }
-        float diferencaPercentualRisco = Float.parseFloat(tDiffPercRisco);
+    private Customer createCustomer() throws ParseException {
 
-        String tPercentualRisco =  etPercentualRisco.getText().toString();
-        if(tPercentualRisco.endsWith("%") ||
-                tPercentualRisco.endsWith(".")){
-            tPercentualRisco = tPercentualRisco.substring(0, tPercentualRisco.length()-1);
-        }
-        float percentualRisco = Float.parseFloat(tPercentualRisco);
-
-        String tMargemBrutaAcumulada = etMargemBrutaAcumulada.getText().toString();
-        if(tMargemBrutaAcumulada.endsWith("%") ||
-                tMargemBrutaAcumulada.endsWith(".")){
-            tMargemBrutaAcumulada = tMargemBrutaAcumulada.substring(0, tMargemBrutaAcumulada.length()-1);
-        }
-        double margemBrutaAcumulada = Double.parseDouble(tMargemBrutaAcumulada);
+        float diferencaPercentualRisco = Float.parseFloat(etDiferencaPercentualRisco.getUnMasked()+"");
+        float percentualRisco = Float.parseFloat(etPercentualRisco.getUnMasked()+"");
+        double margemBrutaAcumulada = Double.parseDouble(etMargemBrutaAcumulada.getUnMasked()+"");
+        long faturamentoBruto = (long) etFaturamentoBruto.getCurrencyDouble();
+        long titulosEmAberto = (long) etTitulosEmAberto.getCurrencyDouble();
+        long margemBruta = (long) etMargemBruta.getCurrencyDouble();
+        long custos = (long) etCustos.getCurrencyDouble();
+        long capitalSocial = (long) etCapitalSocial.getCurrencyDouble();
+        long limiteEmppresa = (long) etLimiteEmpresaAnaliseCredito.getCurrencyDouble();
 
         Customer c = new Customer(etNome.getText().toString(),
                 Integer.parseInt(etMaiorAtraso.getText().toString()),
-                Integer.parseInt(etTitulosEmAberto.getText().toString()),
-                Integer.parseInt(etFaturamentoBruto.getText().toString()),
-                Integer.parseInt(etMargemBruta.getText().toString()),
+                titulosEmAberto,
+                faturamentoBruto,
+                margemBruta,
                 Integer.parseInt(etPeriodoDemonstrativoEmMeses.getText().toString()),
-                Integer.parseInt(etCustos.getText().toString()),
+                custos,
                 Integer.parseInt(etAnoFundacao.getText().toString()),
-                Integer.parseInt(etCapitalSocial.getText().toString()),
+                capitalSocial,
                 Integer.parseInt(etScorePontualidade.getText().toString()),
-                risco, Float.parseFloat(etPrazoMedioRecebimentoVendas.getText().toString()),
+                risco, Integer.parseInt(etPrazoMedioRecebimentoVendas.getText().toString()),
                 diferencaPercentualRisco,
                 percentualRisco,
                 margemBrutaAcumulada,
-                Float.parseFloat(etLimiteEmpresaAnaliseCredito.getText().toString()), microempresa, restricao, -1);
+                limiteEmppresa, microempresa, restricao, -1);
         return c;
-    }
-
-    private Customer createTestCustomer(){
-        String razaoSocial = "Abbie Shaw";
-        int maiorAtraso = 12; //OK
-        int titulosEmAberto = 1491736; //OK
-        int faturamentoBruto = 0; //OK'
-        int margemBruta = 0; //OK
-        int periodoDemonstrativoEmMeses = 1; //OK
-        int custos = 0; //OK
-        int anoFundacao = 2011; //OK
-        int capitalSocial = 979957432; //OK
-        int scorePontualidade = 1; //OK
-        int risco = 1; //OK
-        double margemBrutaAcumulada = 0.5543; //OK Corrigida
-        float prazoMedioRecebimentoVendas = 15; //OK Corrigido
-        float diferencaPercentualRisco = 0.75f; //OK Corrigido
-        float percentualRisco = 0.25f; // OK Corrigido
-
-        float limiteEmpresaAnaliseCredito = 43200f;
-        int empresaME = 1;
-        int restricao = 0;
-
-
-
-        Customer customer = new Customer(razaoSocial, maiorAtraso, titulosEmAberto, faturamentoBruto,
-                margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
-                capitalSocial, scorePontualidade, risco, prazoMedioRecebimentoVendas,
-                diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada,
-                limiteEmpresaAnaliseCredito, empresaME, restricao, -1);
-
-        return customer;
     }
 
     @Override
     public void onSuccess(List<Integer> parameter) {
         Log.d("DABUEK", "Classificação no Fragment: "+parameter.get(0));
         progressBar.setVisibility(View.INVISIBLE);
+        scrollView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onError(Throwable throwable) {
         Log.d("DABUEK", "Erro no fragment: "+throwable.getMessage());
         progressBar.setVisibility(View.INVISIBLE);
+        scrollView.setVisibility(View.VISIBLE);
     }
 }

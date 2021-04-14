@@ -9,12 +9,26 @@
         android:id="@+id/dest_classification"
         android:name="br.com.wtecsuprimentos.view.fragments.ClassifyCustomerFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_classify_customer"/>
+        tools:layout="@layout/fragment_classify_customer">
+        <argument
+            android:name="customer"
+            app:argType="br.com.wtecsuprimentos.domain.entities.Customer"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_dest_classification_to_dest_list_customers_to_classify"
+            app:destination="@id/dest_list_customers_to_classify" />
+    </fragment>
     <fragment
         android:id="@+id/dest_list_customers_to_classify"
-        android:name="br.com.wtecsuprimentos.view.fragments.CustomersFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.CustomersToClassifyFragment"
         android:label="fragment_customers"
-        tools:layout="@layout/fragment_customers" />
+        tools:layout="@layout/fragment_customers">
+        <action
+            android:id="@+id/action_dest_list_customers_to_classify_to_dest_classification"
+            app:destination="@id/dest_classification" />
+
+    </fragment>
     <fragment
         android:id="@+id/dest_register_new_user"
         android:name="br.com.wtecsuprimentos.view.fragments.RegisterCustomerFragment"

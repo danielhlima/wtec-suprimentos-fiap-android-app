@@ -1,6 +1,7 @@
 package br.com.wtecsuprimentos.domain.entities;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Objects;
 
 public class Customer implements Serializable {
@@ -8,25 +9,25 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String razaoSocial;
-    private int maiorAtraso, titulosEmAberto, margemBruta,
-            periodoDemonstrativoEmMeses, anoFundacao, capitalSocial,
-            scorePontualidade, risco;
-    private float prazoMedioRecebimentoVendas, custos,
-            diferencaPercentualRisco, percentualRisco;
-    private double margemBrutaAcumulada;
+    private int maiorAtraso,
+            periodoDemonstrativoEmMeses, anoFundacao,
+            scorePontualidade, risco, prazoMedioRecebimentoVendas;
+
+    private double diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada;
+
+    long margemBruta, custos, capitalSocial, faturamentoBruto, titulosEmAberto, limiteEmpresaAnaliseCredito;
 
     //Additional parameters for regression
-    private float limiteEmpresaAnaliseCredito, faturamentoBruto;
     private int emrpesaME;
     private int restricao;
     private int cluster;
 
     public Customer(){}
 
-    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, float faturamentoBruto,
-                    int margemBruta, int periodoDemonstrativoEmMeses, float custos, int anoFundacao,
-                    int capitalSocial, int scorePontualidade, int risco, double margemBrutaAcumulada,
-                    float prazoMedioRecebimentoVendas, float diferencaPercentualRisco, float percentualRisco) {
+    public Customer(String razaoSocial, int maiorAtraso, long titulosEmAberto, long faturamentoBruto,
+                    long margemBruta, int periodoDemonstrativoEmMeses, long custos, int anoFundacao,
+                    long capitalSocial, int scorePontualidade, int risco, double margemBrutaAcumulada,
+                    int prazoMedioRecebimentoVendas, double diferencaPercentualRisco, double percentualRisco) {
         this.razaoSocial = razaoSocial;
         this.maiorAtraso = maiorAtraso;
         this.titulosEmAberto = titulosEmAberto;
@@ -44,11 +45,11 @@ public class Customer implements Serializable {
         this.percentualRisco = percentualRisco;
     }
 
-    public Customer(String razaoSocial, int maiorAtraso, int titulosEmAberto, float faturamentoBruto,
-                    int margemBruta, int periodoDemonstrativoEmMeses, float custos, int anoFundacao,
-                    int capitalSocial, int scorePontualidade, int risco, float prazoMedioRecebimentoVendas,
-                    float diferencaPercentualRisco, float percentualRisco, double margemBrutaAcumulada,
-                    float limiteEmpresaAnaliseCredito, int emrpesaME, int restricao, int cluster) {
+    public Customer(String razaoSocial, int maiorAtraso, long titulosEmAberto, long faturamentoBruto,
+                    long margemBruta, int periodoDemonstrativoEmMeses, long custos, int anoFundacao,
+                    long capitalSocial, int scorePontualidade, int risco, int prazoMedioRecebimentoVendas,
+                    double diferencaPercentualRisco, double percentualRisco, double margemBrutaAcumulada,
+                    long limiteEmpresaAnaliseCredito, int emrpesaME, int restricao, int cluster) {
         this.razaoSocial = razaoSocial;
         this.maiorAtraso = maiorAtraso;
         this.titulosEmAberto = titulosEmAberto;
@@ -86,27 +87,27 @@ public class Customer implements Serializable {
         this.maiorAtraso = maiorAtraso;
     }
 
-    public int getTitulosEmAberto() {
+    public long getTitulosEmAberto() {
         return titulosEmAberto;
     }
 
-    public void setTitulosEmAberto(int titulosEmAberto) {
+    public void setTitulosEmAberto(long titulosEmAberto) {
         this.titulosEmAberto = titulosEmAberto;
     }
 
-    public float getFaturamentoBruto() {
+    public long getFaturamentoBruto() {
         return faturamentoBruto;
     }
 
-    public void setFaturamentoBruto(float faturamentoBruto) {
+    public void setFaturamentoBruto(long faturamentoBruto) {
         this.faturamentoBruto = faturamentoBruto;
     }
 
-    public int getMargemBruta() {
+    public long getMargemBruta() {
         return margemBruta;
     }
 
-    public void setMargemBruta(int margemBruta) {
+    public void setMargemBruta(long margemBruta) {
         this.margemBruta = margemBruta;
     }
 
@@ -118,11 +119,11 @@ public class Customer implements Serializable {
         this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
     }
 
-    public float getCustos() {
+    public long getCustos() {
         return custos;
     }
 
-    public void setCustos(float custos) {
+    public void setCustos(long custos) {
         this.custos = custos;
     }
 
@@ -134,11 +135,11 @@ public class Customer implements Serializable {
         this.anoFundacao = anoFundacao;
     }
 
-    public int getCapitalSocial() {
+    public long getCapitalSocial() {
         return capitalSocial;
     }
 
-    public void setCapitalSocial(int capitalSocial) {
+    public void setCapitalSocial(long capitalSocial) {
         this.capitalSocial = capitalSocial;
     }
 
@@ -166,35 +167,35 @@ public class Customer implements Serializable {
         this.margemBrutaAcumulada = margemBrutaAcumulada;
     }
 
-    public float getPrazoMedioRecebimentoVendas() {
+    public int getPrazoMedioRecebimentoVendas() {
         return prazoMedioRecebimentoVendas;
     }
 
-    public void setPrazoMedioRecebimentoVendas(float prazoMedioRecebimentoVendas) {
+    public void setPrazoMedioRecebimentoVendas(int prazoMedioRecebimentoVendas) {
         this.prazoMedioRecebimentoVendas = prazoMedioRecebimentoVendas;
     }
 
-    public float getDiferencaPercentualRisco() {
+    public double getDiferencaPercentualRisco() {
         return diferencaPercentualRisco;
     }
 
-    public void setDiferencaPercentualRisco(float diferencaPercentualRisco) {
+    public void setDiferencaPercentualRisco(double diferencaPercentualRisco) {
         this.diferencaPercentualRisco = diferencaPercentualRisco;
     }
 
-    public float getPercentualRisco() {
+    public double getPercentualRisco() {
         return percentualRisco;
     }
 
-    public void setPercentualRisco(float percentualRisco) {
+    public void setPercentualRisco(double percentualRisco) {
         this.percentualRisco = percentualRisco;
     }
 
-    public float getLimiteEmpresaAnaliseCredito() {
+    public long getLimiteEmpresaAnaliseCredito() {
         return limiteEmpresaAnaliseCredito;
     }
 
-    public void setLimiteEmpresaAnaliseCredito(float limiteEmpresaAnaliseCredito) {
+    public void setLimiteEmpresaAnaliseCredito(long limiteEmpresaAnaliseCredito) {
         this.limiteEmpresaAnaliseCredito = limiteEmpresaAnaliseCredito;
     }
 

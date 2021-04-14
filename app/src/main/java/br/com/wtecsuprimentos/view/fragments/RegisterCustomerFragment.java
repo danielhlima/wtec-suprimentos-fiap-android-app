@@ -66,11 +66,11 @@ public class RegisterCustomerFragment extends Fragment implements DataIn.Callbac
         int scorePontualidade = 1; //OK
         int risco = 1; //OK
         double margemBrutaAcumulada = 0.25; //OK Corrigida
-        float prazoMedioRecebimentoVendas = 0; //OK Corrigido
+        int prazoMedioRecebimentoVendas = 0; //OK Corrigido
         float diferencaPercentualRisco = 0.71f; //OK Corrigido0.28
         float percentualRisco = 0.28f; // OK Corrigido
 
-        float limiteEmpresaAnaliseCredito = 43200f;
+        long limiteEmpresaAnaliseCredito = 43200L;
         int empresaME = 1;
         int restricao = 0;
 

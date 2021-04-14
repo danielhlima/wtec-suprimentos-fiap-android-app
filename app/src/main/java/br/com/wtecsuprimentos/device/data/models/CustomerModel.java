@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.math.BigInteger;
+
 import br.com.wtecsuprimentos.domain.entities.Customer;
 
 @Entity(tableName = "customer")
@@ -12,15 +14,16 @@ public class CustomerModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String razaoSocial;
-    private int maiorAtraso, titulosEmAberto, margemBruta,
-            periodoDemonstrativoEmMeses, anoFundacao, capitalSocial,
-            scorePontualidade, risco;
-    private float prazoMedioRecebimentoVendas, custos,
-            diferencaPercentualRisco, percentualRisco;
-    private double margemBrutaAcumulada;
+    private int maiorAtraso,
+            periodoDemonstrativoEmMeses, anoFundacao,
+            scorePontualidade, risco, prazoMedioRecebimentoVendas;
+
+    private double diferencaPercentualRisco, percentualRisco,
+            margemBrutaAcumulada;
+
+    long margemBruta, custos, capitalSocial, faturamentoBruto, titulosEmAberto, limiteEmpresaAnaliseCredito;
 
     //Additional parameters for regression
-    private float limiteEmpresaAnaliseCredito, faturamentoBruto;
     private int emrpesaME;
     private int restricao;
     private int cluster;
@@ -73,27 +76,27 @@ public class CustomerModel {
         this.maiorAtraso = maiorAtraso;
     }
 
-    public int getTitulosEmAberto() {
+    public long getTitulosEmAberto() {
         return titulosEmAberto;
     }
 
-    public void setTitulosEmAberto(int titulosEmAberto) {
+    public void setTitulosEmAberto(long titulosEmAberto) {
         this.titulosEmAberto = titulosEmAberto;
     }
 
-    public float getFaturamentoBruto() {
+    public long getFaturamentoBruto() {
         return faturamentoBruto;
     }
 
-    public void setFaturamentoBruto(float faturamentoBruto) {
+    public void setFaturamentoBruto(long faturamentoBruto) {
         this.faturamentoBruto = faturamentoBruto;
     }
 
-    public int getMargemBruta() {
+    public long getMargemBruta() {
         return margemBruta;
     }
 
-    public void setMargemBruta(int margemBruta) {
+    public void setMargemBruta(long margemBruta) {
         this.margemBruta = margemBruta;
     }
 
@@ -105,11 +108,11 @@ public class CustomerModel {
         this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
     }
 
-    public float getCustos() {
+    public long getCustos() {
         return custos;
     }
 
-    public void setCustos(float custos) {
+    public void setCustos(long custos) {
         this.custos = custos;
     }
 
@@ -121,11 +124,11 @@ public class CustomerModel {
         this.anoFundacao = anoFundacao;
     }
 
-    public int getCapitalSocial() {
+    public long getCapitalSocial() {
         return capitalSocial;
     }
 
-    public void setCapitalSocial(int capitalSocial) {
+    public void setCapitalSocial(long capitalSocial) {
         this.capitalSocial = capitalSocial;
     }
 
@@ -153,27 +156,27 @@ public class CustomerModel {
         this.margemBrutaAcumulada = margemBrutaAcumulada;
     }
 
-    public float getPrazoMedioRecebimentoVendas() {
+    public int getPrazoMedioRecebimentoVendas() {
         return prazoMedioRecebimentoVendas;
     }
 
-    public void setPrazoMedioRecebimentoVendas(float prazoMedioRecebimentoVendas) {
+    public void setPrazoMedioRecebimentoVendas(int prazoMedioRecebimentoVendas) {
         this.prazoMedioRecebimentoVendas = prazoMedioRecebimentoVendas;
     }
 
-    public float getDiferencaPercentualRisco() {
+    public double getDiferencaPercentualRisco() {
         return diferencaPercentualRisco;
     }
 
-    public void setDiferencaPercentualRisco(float diferencaPercentualRisco) {
+    public void setDiferencaPercentualRisco(double diferencaPercentualRisco) {
         this.diferencaPercentualRisco = diferencaPercentualRisco;
     }
 
-    public float getPercentualRisco() {
+    public double getPercentualRisco() {
         return percentualRisco;
     }
 
-    public void setPercentualRisco(float percentualRisco) {
+    public void setPercentualRisco(double percentualRisco) {
         this.percentualRisco = percentualRisco;
     }
 
@@ -185,11 +188,11 @@ public class CustomerModel {
         this.cluster = cluster;
     }
 
-    public float getLimiteEmpresaAnaliseCredito() {
+    public long getLimiteEmpresaAnaliseCredito() {
         return limiteEmpresaAnaliseCredito;
     }
 
-    public void setLimiteEmpresaAnaliseCredito(float limiteEmpresaAnaliseCredito) {
+    public void setLimiteEmpresaAnaliseCredito(long limiteEmpresaAnaliseCredito) {
         this.limiteEmpresaAnaliseCredito = limiteEmpresaAnaliseCredito;
     }
 

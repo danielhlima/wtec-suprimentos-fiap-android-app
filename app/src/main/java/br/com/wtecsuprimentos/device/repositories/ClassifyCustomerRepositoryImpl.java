@@ -77,14 +77,14 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
                     break;
 
                 case 3:
-                    insideArray.add(0);
                     insideArray.add(1);
+                    insideArray.add(0);
                     insideArray.add(0);
                     break;
 
                 case 2:
-                    insideArray.add(1);
                     insideArray.add(0);
+                    insideArray.add(1);
                     insideArray.add(0);
                     break;
 
@@ -107,35 +107,5 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
 
         RequestBody rBody = RequestBody.create(MediaType.parse("application/json"), customersToClassify.toString());
         return rBody;
-    }
-
-    private Customer createTestCustomer(){
-        String razaoSocial = "James Richardson-Patel";
-        int maiorAtraso = 0; //OK
-        int titulosEmAberto = 0; //OK
-        int faturamentoBruto = 1766880; //OK
-        int margemBruta = 0; //OK
-        int periodoDemonstrativoEmMeses = 12; //OK
-        int custos = 0; //OK
-        int anoFundacao = 2003; //OK
-        int capitalSocial = 90000; //OK
-        int scorePontualidade = 1; //OK
-        int risco = 1; //OK
-        double margemBrutaAcumulada = 0.25; //OK Corrigida
-        float prazoMedioRecebimentoVendas = 0; //OK Corrigido
-        float diferencaPercentualRisco = 0.71f; //OK Corrigido0.28
-        float percentualRisco = 0.28f; // OK Corrigido
-
-        float limiteEmpresaAnaliseCredito = 43200f;
-        int empresaME = 1;
-        int restricao = 0;
-
-        Customer customer = new Customer(razaoSocial, maiorAtraso, titulosEmAberto, faturamentoBruto,
-        margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
-        capitalSocial, scorePontualidade, risco, prazoMedioRecebimentoVendas,
-        diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada,
-                limiteEmpresaAnaliseCredito, empresaME, restricao, -1);
-
-        return customer;
     }
 }
