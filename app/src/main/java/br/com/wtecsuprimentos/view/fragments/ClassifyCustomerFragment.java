@@ -6,8 +6,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,6 +66,7 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
     public ClassifyCustomerFragment() {
 
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

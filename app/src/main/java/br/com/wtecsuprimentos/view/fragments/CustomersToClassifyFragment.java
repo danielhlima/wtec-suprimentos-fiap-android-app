@@ -38,6 +38,11 @@ public class CustomersToClassifyFragment extends Fragment implements DataOut.Cal
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         getAllCustomersViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity()
                 .getApplication())
                 .create(GetAllCustomersViewModel.class);
