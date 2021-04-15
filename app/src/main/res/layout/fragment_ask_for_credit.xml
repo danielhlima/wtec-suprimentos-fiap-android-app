@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryLightColor"
     tools:context=".view.fragments.AskForCreditFragment">
 
     <LinearLayout
@@ -369,24 +370,28 @@
                     android:id="@+id/radioButtonAltoRisco_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/risco_alto" />
 
                 <RadioButton
                     android:id="@+id/radioButtonMedioRisco_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/risco_medio" />
 
                 <RadioButton
                     android:id="@+id/radioButtonBaixoRisco_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/risco_baixo" />
 
                 <RadioButton
                     android:id="@+id/radioButtonMuitoBaixoRisco_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:checked="true"
                     android:text="@string/risco_muito_baixo" />
             </RadioGroup>
@@ -408,6 +413,7 @@
                     android:id="@+id/radioButtonEmpresaMESim_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:checked="true"
                     android:text="@string/sim" />
 
@@ -415,6 +421,7 @@
                     android:id="@+id/radioButtonEmpresaMENao_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/nao" />
             </RadioGroup>
 
@@ -435,12 +442,14 @@
                     android:id="@+id/radioButtonRestricaoSim_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/sim" />
 
                 <RadioButton
                     android:id="@+id/radioButtonRestricaoNao_regression"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryDarkColor"
                     android:checked="true"
                     android:text="@string/nao" />
             </RadioGroup>

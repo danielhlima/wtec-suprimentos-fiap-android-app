@@ -56,5 +56,6 @@ public class AskForCreditPresenter implements DataOut.Callback<Double> {
                 callback.onError(throwable);
             }
         };
+        handler.post(runnable);
     }
 }
