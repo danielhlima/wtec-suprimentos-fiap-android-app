@@ -551,13 +551,6 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         switch (id){
-            case R.id.menu_item_novo_cliente:
-
-                break;
-
-            case R.id.menu_item_listar_classificados:
-
-                break;
 
             case R.id.menu_item_listar_classificar:
                 Navigation.findNavController(getView()).navigate(R.id.action_dest_classification_to_dest_list_customers_to_classify);
@@ -639,6 +632,8 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         LayoutInflater li = getLayoutInflater();
         View view = li.inflate(R.layout.alert_classification, null);
         ((TextView)view.findViewById(R.id.tv_alert_customer_name)).setText(customer.getRazaoSocial());
+        ((TextView)view.findViewById(R.id.tv_alert_cluster_text))
+                .setText("Este cliente pertence ao cluster: "+parameter.get(0));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view);

@@ -27,10 +27,9 @@ public class AskForCreditRepositoryImpl implements AskForCreditRepository {
             @Override
             public void onResponse(Call<Double> call, Response<Double> response) {
                 if(response.code() != 200){
-                    Log.d("DABUEK", "Erro retrofit regressão");
+                    Log.d("DABUEK", "Erro retrofit no onSucess code != 200");
                     callback.onError(new Throwable("Erro na Regressão: "+response.code()));
                 }else{
-                    Log.d("DABUEK", "AEAEAEAEAE: "+response.body());
                     callback.onSuccess(response.body());
                 }
             }

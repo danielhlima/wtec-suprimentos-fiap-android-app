@@ -57,5 +57,11 @@
     <string name="erro_validacao">Ainda existem campos para preencher</string>
     <string name="cluster">Cluster</string>
     <string name="cluster_message">"Este cliente pertence ao Cluster: "</string>
+    <string name="regress_expl">O modelo de regressão utiliza modelos de machine learning para analisar as requisições de crédito dos clientes da WTEC</string>
+    <string name="regress_1">Basta entrar com as informações do cliente já cadastrado e solicitar o crédito.</string>
+    <string name="solicitar_credito">Solicitar crédito</string>
+    <string name="listar_clientes_para_regressaor">Listar clientes para solicitar crédito</string>
+    <string name="titulos_valor">Valor solicitado</string>
+    <string name="erro_valor">O campo valor deve ter ao menos um número</string>
 
 </resources>

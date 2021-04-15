@@ -37,7 +37,7 @@ public class ChooseSimulationFragment extends Fragment {
         ((Button)view.findViewById(R.id.bt_go_regress)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_chooseSimulationFragment_to_regressionHomeFragment);
             }
         });
 

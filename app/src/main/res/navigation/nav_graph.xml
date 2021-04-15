@@ -38,7 +38,16 @@
         android:id="@+id/askForCreditFragment"
         android:name="br.com.wtecsuprimentos.view.fragments.AskForCreditFragment"
         android:label="fragment_ask_for_credit"
-        tools:layout="@layout/fragment_ask_for_credit" />
+        tools:layout="@layout/fragment_ask_for_credit" >
+        <argument
+            android:name="customer"
+            app:argType="br.com.wtecsuprimentos.domain.entities.Customer"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_askForCreditFragment_to_customersForRegressionFragment"
+            app:destination="@id/customersForRegressionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="br.com.wtecsuprimentos.view.fragments.HomeFragment"
@@ -52,6 +61,9 @@
         <action
             android:id="@+id/action_chooseSimulationFragment_to_classificationHomeFragment"
             app:destination="@id/classificationHomeFragment" />
+        <action
+            android:id="@+id/action_chooseSimulationFragment_to_regressionHomeFragment"
+            app:destination="@id/regressionHomeFragment" />
     </fragment>
 
     <action
@@ -69,6 +81,24 @@
         <action
             android:id="@+id/action_classificationHomeFragment_to_dest_classification"
             app:destination="@id/dest_classification" />
+    </fragment>
+    <fragment
+        android:id="@+id/regressionHomeFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.RegressionHomeFragment"
+        android:label="fragment_regression_home"
+        tools:layout="@layout/fragment_regression_home" >
+        <action
+            android:id="@+id/action_regressionHomeFragment_to_askForCreditFragment"
+            app:destination="@id/askForCreditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customersForRegressionFragment"
+        android:name="br.com.wtecsuprimentos.view.fragments.CustomersForRegressionFragment"
+        android:label="fragment_customers_for_regression"
+        tools:layout="@layout/fragment_customers_for_regression" >
+        <action
+            android:id="@+id/action_customersForRegressionFragment_to_askForCreditFragment"
+            app:destination="@id/askForCreditFragment" />
     </fragment>
 
 </navigation>
