@@ -61,4 +61,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.github.santalu:maskara:1.0.0'
     implementation 'com.github.faranjit:currency-edittext:1.0.1'
+    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
 }

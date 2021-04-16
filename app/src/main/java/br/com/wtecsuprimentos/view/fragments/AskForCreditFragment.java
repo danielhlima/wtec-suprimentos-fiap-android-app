@@ -61,6 +61,7 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
     private int risco = 1, microempresa = 1, restricao = 0;
 
     private Customer customer;
+    private double value;
 
     public AskForCreditFragment() {}
 
@@ -594,7 +595,7 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
                 if (customer != null) {
                     List<Customer> customers = new ArrayList<Customer>();
                     customers.add(customer);
-                    double value = editTextValor.getCurrencyDouble();
+                    value = editTextValor.getCurrencyDouble();
                     viewModel.askForCredit(customer, this, value);
                 }
             }catch (Exception e){
@@ -681,8 +682,13 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
 
     @Override
     public void onError(Throwable throwable) {
-        progressBar.setVisibility(View.INVISIBLE);
-        scrollView.setVisibility(View.VISIBLE);
         Log.d("DABUEK", "Erro de regressão no fragment: "+throwable.getMessage());
+        if(throwable.getMessage().equalsIgnoreCase("timeout")){
+            viewModel.askForCredit(customer, this, value);
+        }else{
+            progressBar.setVisibility(View.INVISIBLE);
+            scrollView.setVisibility(View.VISIBLE);
+            Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -651,7 +651,15 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
     @Override
     public void onError(Throwable throwable) {
         Log.d("DABUEK", "Erro no fragment: "+throwable.getMessage());
-        progressBar.setVisibility(View.INVISIBLE);
-        scrollView.setVisibility(View.VISIBLE);
+
+        if(throwable.getMessage().equalsIgnoreCase("timeout")){
+            List<Customer> customers = new ArrayList<Customer>();
+            customers.add(customer);
+            viewModel.classifyCustomer(customers, this);
+        }else{
+            progressBar.setVisibility(View.INVISIBLE);
+            scrollView.setVisibility(View.VISIBLE);
+            Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

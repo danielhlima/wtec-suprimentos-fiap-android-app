@@ -18,12 +18,24 @@
         android:gravity="center"
         android:visibility="invisible">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyle"
+<!--        <ProgressBar-->
+<!--            style="?android:attr/progressBarStyle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:visibility="visible" />-->
+
+        <com.agrawalsuneet.dotsloader.loaders.AllianceLoader
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="visible" />
+            app:alliance_animDuration="500"
+            app:alliance_distanceMultiplier="4"
+            app:alliance_dotsRadius="20dp"
+            app:alliance_drawOnlyStroke="true"
+            app:alliance_firstDotsColor="@color/primaryLightColor"
+            app:alliance_secondDotsColor="@color/primaryDarkColor"
+            app:alliance_strokeWidth="8dp"
+            app:alliance_thirdDotsColor="@color/primaryColor" />
 
     </LinearLayout>
 
@@ -41,6 +53,13 @@
             android:padding="20dp"
             android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,6 +76,15 @@
                 android:hint="@string/nome_hint"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,6 +102,14 @@
                 android:hint="@string/maior_atraso"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -95,6 +131,14 @@
                 app:showSymbol="true"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -116,6 +160,14 @@
                 app:locale="en_US"
                 app:showSymbol="true"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -137,6 +189,14 @@
                 app:locale="en_US"
                 app:showSymbol="true"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -154,6 +214,14 @@
                 android:hint="@string/periodo_demonstrativo_em_meses"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -175,6 +243,14 @@
                 app:showSymbol="true"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -192,6 +268,14 @@
                 android:hint="@string/ano_fundacao"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -213,6 +297,14 @@
                 app:showSymbol="true"
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -230,6 +322,14 @@
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no"
                 android:inputType="number"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -247,6 +347,14 @@
                 android:textColor="@color/primaryDarkColor"
                 android:importantForAutofill="no"
                 android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -268,7 +376,14 @@
                 app:locale="en_US"
                 app:showSymbol="true"
                 android:inputType="number" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -289,6 +404,14 @@
                 android:importantForAutofill="no"
                 android:textColor="@color/primaryDarkColor"
                 android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -310,6 +433,14 @@
                 android:importantForAutofill="no"
                 android:textColor="@color/primaryDarkColor"
                 android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -331,6 +462,14 @@
                 android:importantForAutofill="no"
                 android:textColor="@color/primaryDarkColor"
                 android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -374,6 +513,14 @@
                     android:checked="true"
                     android:text="@string/risco_muito_baixo" />
             </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -403,6 +550,14 @@
                     android:buttonTint="@color/primaryDarkColor"
                     android:text="@string/nao" />
             </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/primarySoftBackgroundColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -432,14 +587,16 @@
                     android:checked="true"
                     android:text="@string/nao" />
             </RadioGroup>
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/bt_classify_customers"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:text="@string/cadastrar_e_classificar" />
+        <Button
+            android:id="@+id/bt_classify_customers"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="70dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="@string/cadastrar_e_classificar" />
 
         </LinearLayout>
     </ScrollView>
