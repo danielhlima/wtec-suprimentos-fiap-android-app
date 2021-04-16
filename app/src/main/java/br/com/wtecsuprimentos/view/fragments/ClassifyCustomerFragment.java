@@ -158,19 +158,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etTitulosEmAberto.getText().toString().length() < 1){
-                        etTitulosEmAberto.setTextColor(Color.parseColor("#FF0000"));
-                        etTitulosEmAberto.setText(getString(R.string.erro_titulos_em_aberto));
                         Toast.makeText(getContext(), R.string.erro_titulos_em_aberto, Toast.LENGTH_LONG).show();
                         etTitulosEmAbertoValidated = false;
                     }else{
                         etTitulosEmAbertoValidated = true;
-                    }
-                }else{
-                    if(etTitulosEmAberto.getText().toString().length() > 0 &&
-                            etTitulosEmAberto.getText().toString().equalsIgnoreCase(getString(R.string.erro_titulos_em_aberto))){
-                        etTitulosEmAberto.setText("");
-                        etTitulosEmAberto.setTextColor(getResources().getColor(R.color.primaryDarkColor));
-
                     }
                 }
             }
@@ -183,18 +174,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etFaturamentoBruto.getText().toString().length() < 1){
-                        etFaturamentoBruto.setTextColor(Color.parseColor("#FF0000"));
-                        etFaturamentoBruto.setText(getString(R.string.erro_faturamento_bruto));
                         Toast.makeText(getContext(), R.string.erro_faturamento_bruto, Toast.LENGTH_LONG).show();
                         etFaturamentoBrutoValidated = false;
                     }else{
                         etFaturamentoBrutoValidated = true;
-                    }
-                }else{
-                    if(etFaturamentoBruto.getText().toString().length() > 0 &&
-                            etFaturamentoBruto.getText().toString().equalsIgnoreCase(getString(R.string.erro_faturamento_bruto))){
-                        etFaturamentoBruto.setText("");
-                        etFaturamentoBruto.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                     }
                 }
             }
@@ -207,18 +190,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etMargemBruta.getText().toString().length() < 1){
-                        etMargemBruta.setTextColor(Color.parseColor("#FF0000"));
-                        etMargemBruta.setText(getString(R.string.erro_margem_bruta));
                         Toast.makeText(getContext(), R.string.erro_margem_bruta, Toast.LENGTH_LONG).show();
                         etMargemBrutaValidated = false;
                     }else{
                         etMargemBrutaValidated = true;
-                    }
-                }else{
-                    if(etMargemBruta.getText().toString().length() > 0 &&
-                            etMargemBruta.getText().toString().equalsIgnoreCase(getString(R.string.erro_margem_bruta))){
-                        etMargemBruta.setText("");
-                        etMargemBruta.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                     }
                 }
             }
@@ -255,18 +230,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etCustos.getText().toString().length() < 1){
-                        etCustos.setTextColor(Color.parseColor("#FF0000"));
-                        etCustos.setText(getString(R.string.erro_custos));
                         Toast.makeText(getContext(), R.string.erro_custos, Toast.LENGTH_LONG).show();
                         etCustosValidated = false;
                     }else{
                         etCustosValidated = true;
-                    }
-                }else{
-                    if(etCustos.getText().toString().length() > 0 &&
-                            etCustos.getText().toString().equalsIgnoreCase(getString(R.string.erro_custos))){
-                        etCustos.setText("");
-                        etCustos.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                     }
                 }
             }
@@ -314,18 +281,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etCapitalSocial.getText().toString().length() < 1){
-                        etCapitalSocial.setTextColor(Color.parseColor("#FF0000"));
-                        etCapitalSocial.setText(getString(R.string.erro_capital_social));
                         Toast.makeText(getContext(), R.string.erro_capital_social, Toast.LENGTH_LONG).show();
                         etCapitalSocialValidated = false;
                     }else{
                         etCapitalSocialValidated = true;
-                    }
-                }else{
-                    if(etCapitalSocial.getText().toString().length() > 0 &&
-                            etCapitalSocial.getText().toString().equalsIgnoreCase(getString(R.string.erro_capital_social))){
-                        etCapitalSocial.setText("");
-                        etCapitalSocial.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                     }
                 }
             }
@@ -362,18 +321,10 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     if (etLimiteEmpresaAnaliseCredito.getText().toString().length() < 1){
-                        etLimiteEmpresaAnaliseCredito.setTextColor(Color.parseColor("#FF0000"));
-                        etLimiteEmpresaAnaliseCredito.setText(getString(R.string.erro_limite_empresa_analise_credito));
                         Toast.makeText(getContext(), R.string.erro_limite_empresa_analise_credito, Toast.LENGTH_LONG).show();
                         etLimiteEmpresaAnaliseCreditoValidated = false;
                     }else{
                         etLimiteEmpresaAnaliseCreditoValidated = true;
-                    }
-                }else{
-                    if(etLimiteEmpresaAnaliseCredito.getText().toString().length() > 0 &&
-                            etLimiteEmpresaAnaliseCredito.getText().toString().equalsIgnoreCase(getString(R.string.erro_limite_empresa_analise_credito))){
-                        etLimiteEmpresaAnaliseCredito.setText("");
-                        etLimiteEmpresaAnaliseCredito.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                     }
                 }
             }
