@@ -628,12 +628,31 @@ public class ClassifyCustomerFragment extends Fragment implements DataOut.Callba
         progressBar.setVisibility(View.INVISIBLE);
         scrollView.setVisibility(View.VISIBLE);
 
+        String cluster = "";
+        switch (parameter.get(0)){
+
+            case 0:
+                cluster = "Gold Master";
+                break;
+
+            case 1:
+                cluster = "Silver";
+                break;
+
+            case 2:
+                cluster = "Gold";
+                break;
+
+            case 3:
+                cluster = "Diamond";
+                break;
+        }
 
         LayoutInflater li = getLayoutInflater();
         View view = li.inflate(R.layout.alert_classification, null);
         ((TextView)view.findViewById(R.id.tv_alert_customer_name)).setText(customer.getRazaoSocial());
         ((TextView)view.findViewById(R.id.tv_alert_cluster_text))
-                .setText("Este cliente pertence ao cluster: "+parameter.get(0));
+                .setText("Este cliente pertence ao cluster:\n\n\n "+cluster);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view);

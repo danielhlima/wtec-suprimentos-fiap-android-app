@@ -49,7 +49,7 @@
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:text="Cluster 1" />
+                android:text="Gold Master" />
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -66,7 +66,7 @@
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:text="Cluster 2" />
+                android:text="Silver" />
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -74,24 +74,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
-                android:text="@string/cat_1"/>
-
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:text="Cluster 3" />
-
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textColor="#FFFFFF"
-                android:text="@string/cat_1"/>
+                android:text="@string/cat_2"/>
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -100,7 +83,7 @@
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:text="Cluster 4" />
+                android:text="Gold" />
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -108,7 +91,24 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
-                android:text="@string/cat_1"/>
+                android:text="@string/cat_3"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="Diamond" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:text="@string/cat_4"/>
 
             <Button
                 android:id="@+id/bt_go_test_class"

@@ -3,12 +3,32 @@
     <string name="greeting">Olá!</string>
     <string name="home_txt1">Seja bem vindo(a) ao aplicativo simulador Wtec Suprimentos!</string>
     <string name="home_txt2">A partir da próxima tela você poderá fazer uma simulação como um cliente da Wtec solicitando crédito, ou um analista da Wtec que vai categorizar um novo cliente.</string>
-    <string name="bt_choose1">Simular como cliente solicitando crédito\n(Regressão)</string>
-    <string name="bt_choose2">Simular como Analista classificando novo cliente\n(Classificação)</string>
+    <string name="bt_choose1">Simular solicitação de crédito\n(Regressão)</string>
+    <string name="bt_choose2">Simular categorização de um novo cliente</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="class_expl">Os Clientes na Wtec são classificados em 4 clusters:</string>
-    <string name="cat_1">Os Clientes deste cluster tem como características pricipais:\n\n\t* Carac1, carac, carac, carac.\n\t* Carac2, carac, carac, carac</string>
+    <string name="cat_1">Os Clientes deste cluster tem como características pricipais:\n\n\t* São clientes de grande porte.\n\t* Faturamento médio em torno de 69MM.
+        \n\t* Têm risco muito baixo. \n\t* Tempo de fundação médio em torno de 21 anos.\n\t* Valor de crédito concedito
+    varia de 100 a 600MM.</string>
+    <string name="cat_2">Os Clientes deste cluster tem como características pricipais:\n\n\t* São clientes de médio porte.\n\t* Faturamento médio em torno de 16MM.
+        \n\t* 87% destes clientes têm risco médio, ao passo que 13% apresentam risco alto.\n\t* 87% concedem aprovação de crédito. \n\t* 62% da base configura-se como Microempresa.
+        \n\t* Tempo de fundação médio em torno de 10 anos.\n\t* Valor de crédito concedito
+    varia de 100 a 600MM.</string>
+    <string name="cat_3">Os Clientes deste cluster tem como características pricipais:\n\n\t* São clientes de grande porte.
+        \n\t* Faturamento médio em torno de 39MM.
+        \n\t* Têm risco baixo.
+        \n\t* Média de atraso no pagamento em torno de 22 idas (sendo máximo em 55 dias).
+        \n\t* Tempo de fundação médio em torno de 17 anos.
+        \n\t* Microempresas.
+        \n\t* 96% concedem aprovação.</string>
+    <string name="cat_4">Os Clientes deste cluster tem como características pricipais:
+        \n\n\t* São clientes de grande porte.\n\t* Faturamento médio em torno de 3bi.
+        \n\t* Têm risco de médio a muito baixo.
+        \n\t* Média de atraso no pagamento em torno de 22 idas (sendo máximo em 55 dias).
+        \n\t* Tempo de fundação médio em torno de 25 anos.
+        \n\t* Solidez no mercado.
+        \n\t* 96% concedem aprovação.</string>
     <string name="cadastrar_novo_cliente">Cadastrar Novo Cliente</string>
     <string name="listar_clientes_classificados">Listar Clientes Classificados</string>
     <string name="listar_clientes_para_classificar">Listar Clientes Para Classificar</string>

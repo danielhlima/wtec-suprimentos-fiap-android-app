@@ -12,29 +12,56 @@
         android:background="@color/primaryLightColor"
         android:orientation="vertical">
 
-
-        <Button
-            android:id="@+id/bt_go_regress"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/home_bg"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:text="@string/bt_choose1" />
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bt_go_class"
-            android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/regressao"/>
+
+            <Button
+                android:id="@+id/bt_go_regress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/home_bg"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="@string/bt_choose1" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:background="@drawable/home_bg"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:text="@string/bt_choose2" />
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clusters"/>
+
+            <Button
+                android:id="@+id/bt_go_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/home_bg"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="@string/bt_choose2" />
+        </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
