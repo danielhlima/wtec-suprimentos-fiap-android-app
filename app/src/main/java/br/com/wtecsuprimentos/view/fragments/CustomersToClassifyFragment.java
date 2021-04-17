@@ -3,6 +3,8 @@ package br.com.wtecsuprimentos.view.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -97,6 +99,5 @@ public class CustomersToClassifyFragment extends Fragment implements DataOut.Cal
         CustomersToClassifyFragmentDirections.ActionDestListCustomersToClassifyToDestClassification actionDirection = CustomersToClassifyFragmentDirections.actionDestListCustomersToClassifyToDestClassification();
         actionDirection.setCustomer(customer);
         Navigation.findNavController(getActivity(), R.id.nav_host).navigate(actionDirection);
-
     }
 }

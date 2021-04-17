@@ -26,7 +26,9 @@
         tools:layout="@layout/fragment_customers">
         <action
             android:id="@+id/action_dest_list_customers_to_classify_to_dest_classification"
-            app:destination="@id/dest_classification" />
+            app:destination="@id/dest_classification"
+            app:popUpTo="@+id/classificationHomeFragment"
+            app:popUpToInclusive="true"/>
 
     </fragment>
     <fragment
@@ -98,7 +100,9 @@
         tools:layout="@layout/fragment_customers_for_regression" >
         <action
             android:id="@+id/action_customersForRegressionFragment_to_askForCreditFragment"
-            app:destination="@id/askForCreditFragment" />
+            app:destination="@id/askForCreditFragment"
+            app:popUpTo="@+id/regressionHomeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
 </navigation>
