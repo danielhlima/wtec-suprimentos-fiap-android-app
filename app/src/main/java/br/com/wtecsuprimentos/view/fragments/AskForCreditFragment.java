@@ -444,6 +444,7 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
 
         if(customer != null){
             etNome.setText(customer.getRazaoSocial());
+            editTextValor.setText("10000");
             etMaiorAtraso.setText(customer.getMaiorAtraso()+"");
             etTitulosEmAberto.setText(customer.getTitulosEmAberto()*100+"");
             etFaturamentoBruto.setText(customer.getFaturamentoBruto()*100+"");
