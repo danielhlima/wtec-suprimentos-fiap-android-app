@@ -77,9 +77,9 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
                     break;
 
                 case 3:
+                    insideArray.add(0);
+                    insideArray.add(0);
                     insideArray.add(1);
-                    insideArray.add(0);
-                    insideArray.add(0);
                     break;
 
                 case 2:
@@ -89,9 +89,9 @@ public class ClassifyCustomerRepositoryImpl implements ClassifyCustomerRepositor
                     break;
 
                 case 1:
-                    insideArray.add(0);
-                    insideArray.add(0);
                     insideArray.add(1);
+                    insideArray.add(0);
+                    insideArray.add(0);
                     break;
             }
 

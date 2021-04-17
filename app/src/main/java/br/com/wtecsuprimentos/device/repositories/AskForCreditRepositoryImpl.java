@@ -73,9 +73,31 @@ public class AskForCreditRepositoryImpl implements AskForCreditRepository {
             insideArray.add(c.getScorePontualidade()); //OK
             insideArray.add(c.getLimiteEmpresaAnaliseCredito());
             //Risco
-            insideArray.add(1);
-            insideArray.add(0);
-            insideArray.add(0);
+            switch (c.getRisco()){
+                case 4:
+                    insideArray.add(0);
+                    insideArray.add(0);
+                    insideArray.add(0);
+                    break;
+
+                case 3:
+                    insideArray.add(0);
+                    insideArray.add(0);
+                    insideArray.add(1);
+                    break;
+
+                case 2:
+                    insideArray.add(0);
+                    insideArray.add(1);
+                    insideArray.add(0);
+                    break;
+
+                case 1:
+                    insideArray.add(1);
+                    insideArray.add(0);
+                    insideArray.add(0);
+                    break;
+            }
             //////////////////
             insideArray.add(c.getEmrpesaME());
             insideArray.add(c.getRestricao());

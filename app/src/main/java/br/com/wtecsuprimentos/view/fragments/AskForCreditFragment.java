@@ -58,7 +58,7 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
             etFaturamentoBrutoValidated, etMargemBrutaValidated, etPeriodoDemonstrativoEmMesesValidated,
             etCustosValidated, etAnoFundacaoValidated, etCapitalSocialValidated, etScorePontualidadeValidated,
             etPrazoMedioRecebimentoVendasValidated, etLimiteEmpresaAnaliseCreditoValidated, editTextValorValidated;
-    private int risco = 1, microempresa = 1, restricao = 0;
+    private int risco, microempresa, restricao;
 
     private Customer customer;
     private double value;
@@ -388,11 +388,11 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
                         break;
 
                     case R.id.radioButtonBaixoRisco_regression:
-                        risco = 2;
+                        risco = 1;
                         break;
 
                     case R.id.radioButtonMuitoBaixoRisco:
-                        risco = 1;
+                        risco = 3;
                         break;
                 }
             }
@@ -476,14 +476,14 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
             }
 
             microempresa = customer.getEmrpesaME();
-            if(microempresa==0){
+            if(microempresa==1){
                 ((RadioButton)getView().findViewById(R.id.radioButtonEmpresaMESim_regression)).setChecked(true);
             }else{
                 ((RadioButton)getView().findViewById(R.id.radioButtonEmpresaMENao_regression)).setChecked(true);
             }
 
             restricao = customer.getRestricao();
-            if(restricao==0){
+            if(restricao==1){
                 ((RadioButton)getView().findViewById(R.id.radioButtonRestricaoSim_regression)).setChecked(true);
             }else{
                 ((RadioButton)getView().findViewById(R.id.radioButtonRestricaoNao_regression)).setChecked(true);
@@ -562,31 +562,28 @@ public class AskForCreditFragment extends Fragment implements DataOut.Callback<D
 
     private Customer createCustomer() throws ParseException {
 
-        float diferencaPercentualRisco = Float.parseFloat(etDiferencaPercentualRisco.getUnMasked()+"");
-        float percentualRisco = Float.parseFloat(etPercentualRisco.getUnMasked()+"");
-        double margemBrutaAcumulada = Double.parseDouble(etMargemBrutaAcumulada.getUnMasked()+"");
-        long faturamentoBruto = (long) etFaturamentoBruto.getCurrencyDouble();
+        String razaoSocial = etNome.getText().toString();
+        int maiorAtraso = Integer.parseInt(etMaiorAtraso.getText().toString());
         long titulosEmAberto = (long) etTitulosEmAberto.getCurrencyDouble();
+        long faturamentoBruto = (long) etFaturamentoBruto.getCurrencyDouble();
         long margemBruta = (long) etMargemBruta.getCurrencyDouble();
+        int periodoDemonstrativoEmMeses = Integer.parseInt(etPeriodoDemonstrativoEmMeses.getText().toString());
         long custos = (long) etCustos.getCurrencyDouble();
+        int anoFundacao = Integer.parseInt(etAnoFundacao.getText().toString());
         long capitalSocial = (long) etCapitalSocial.getCurrencyDouble();
-        long limiteEmppresa = (long) etLimiteEmpresaAnaliseCredito.getCurrencyDouble();
+        int scorePontualidade = Integer.parseInt(etScorePontualidade.getText().toString());
+        int prazoMedioRecebimentoVendas = Integer.parseInt(etPrazoMedioRecebimentoVendas.getText().toString());
+        float diferencaPercentualRisco = Float.parseFloat(etDiferencaPercentualRisco.getUnMasked()+"")/100;
+        float percentualRisco = Float.parseFloat(etPercentualRisco.getUnMasked()+"")/100;
+        double margemBrutaAcumulada = Double.parseDouble(etMargemBrutaAcumulada.getUnMasked()+"")/100;
+        long limiteEmpresa = (long) etLimiteEmpresaAnaliseCredito.getCurrencyDouble();
 
-        Customer c = new Customer(etNome.getText().toString(),
-                Integer.parseInt(etMaiorAtraso.getText().toString()),
-                titulosEmAberto,
-                faturamentoBruto,
-                margemBruta,
-                Integer.parseInt(etPeriodoDemonstrativoEmMeses.getText().toString()),
-                custos,
-                Integer.parseInt(etAnoFundacao.getText().toString()),
-                capitalSocial,
-                Integer.parseInt(etScorePontualidade.getText().toString()),
-                risco, Integer.parseInt(etPrazoMedioRecebimentoVendas.getText().toString()),
-                diferencaPercentualRisco,
-                percentualRisco,
-                margemBrutaAcumulada,
-                limiteEmppresa, microempresa, restricao, -1);
+
+        Customer c = new Customer(razaoSocial, maiorAtraso, titulosEmAberto, faturamentoBruto,
+                margemBruta, periodoDemonstrativoEmMeses, custos, anoFundacao,
+                capitalSocial, scorePontualidade, risco,  prazoMedioRecebimentoVendas,
+                diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada,
+                limiteEmpresa, microempresa, restricao, -1);
         return c;
     }
 

@@ -16,17 +16,12 @@ public class CustomerModel {
     private String razaoSocial;
     private int maiorAtraso,
             periodoDemonstrativoEmMeses, anoFundacao,
-            scorePontualidade, risco, prazoMedioRecebimentoVendas;
+            scorePontualidade, risco, prazoMedioRecebimentoVendas, emrpesaME, restricao, cluster;
 
     private double diferencaPercentualRisco, percentualRisco,
             margemBrutaAcumulada;
 
     long margemBruta, custos, capitalSocial, faturamentoBruto, titulosEmAberto, limiteEmpresaAnaliseCredito;
-
-    //Additional parameters for regression
-    private int emrpesaME;
-    private int restricao;
-    private int cluster;
 
     public CustomerModel(){}
 

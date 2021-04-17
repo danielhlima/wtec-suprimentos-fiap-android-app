@@ -11,39 +11,13 @@ public class Customer implements Serializable {
     private String razaoSocial;
     private int maiorAtraso,
             periodoDemonstrativoEmMeses, anoFundacao,
-            scorePontualidade, risco, prazoMedioRecebimentoVendas;
+            scorePontualidade, risco, prazoMedioRecebimentoVendas, emrpesaME, restricao, cluster;
 
     private double diferencaPercentualRisco, percentualRisco, margemBrutaAcumulada;
 
     long margemBruta, custos, capitalSocial, faturamentoBruto, titulosEmAberto, limiteEmpresaAnaliseCredito;
 
-    //Additional parameters for regression
-    private int emrpesaME;
-    private int restricao;
-    private int cluster;
-
     public Customer(){}
-
-    public Customer(String razaoSocial, int maiorAtraso, long titulosEmAberto, long faturamentoBruto,
-                    long margemBruta, int periodoDemonstrativoEmMeses, long custos, int anoFundacao,
-                    long capitalSocial, int scorePontualidade, int risco, double margemBrutaAcumulada,
-                    int prazoMedioRecebimentoVendas, double diferencaPercentualRisco, double percentualRisco) {
-        this.razaoSocial = razaoSocial;
-        this.maiorAtraso = maiorAtraso;
-        this.titulosEmAberto = titulosEmAberto;
-        this.faturamentoBruto = faturamentoBruto;
-        this.margemBruta = margemBruta;
-        this.periodoDemonstrativoEmMeses = periodoDemonstrativoEmMeses;
-        this.custos = custos;
-        this.anoFundacao = anoFundacao;
-        this.capitalSocial = capitalSocial;
-        this.scorePontualidade = scorePontualidade;
-        this.risco = risco;
-        this.margemBrutaAcumulada = margemBrutaAcumulada;
-        this.prazoMedioRecebimentoVendas = prazoMedioRecebimentoVendas;
-        this.diferencaPercentualRisco = diferencaPercentualRisco;
-        this.percentualRisco = percentualRisco;
-    }
 
     public Customer(String razaoSocial, int maiorAtraso, long titulosEmAberto, long faturamentoBruto,
                     long margemBruta, int periodoDemonstrativoEmMeses, long custos, int anoFundacao,

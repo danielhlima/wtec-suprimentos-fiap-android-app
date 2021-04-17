@@ -83,5 +83,7 @@
     <string name="listar_clientes_para_regressaor">Listar clientes para solicitar crédito</string>
     <string name="titulos_valor">Valor solicitado</string>
     <string name="erro_valor">O campo valor deve ter ao menos um número</string>
+    <string name="solicitacao_credito">Solicitação de Crédito</string>
+    <string name="classificacao_novo_cliente">Classificação de Novo Cliente</string>
 
 </resources>
